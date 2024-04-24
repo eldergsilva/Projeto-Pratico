@@ -1,9 +1,15 @@
 @import url("./styles/headers.css");
-:root{
-    --cor-de-fundo:var(green);
-    --branco:#FFFFFF;
+:root {
+    --cor-de-fundo: #d3ecdf;
+    --branco: #FFFFFF;
+    --marrom: #EB9B00;
+    --verde-degrade: linear-gradient(97.54deg,  #1B5438 35.49%, #4A6C5A 165.37%);
+    --fonte-principal: "Poppins";
 }
-body{
-    --cor-de-fundo:var(--cor-de-fundo);
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
 }
- 

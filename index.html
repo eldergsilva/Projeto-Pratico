@@ -40,7 +40,25 @@
             <h1 class="container__titulo"><b class="container__titulo--negrito">amazonia</b> beauty co</h1>
         </div>       
         <ul class="opções">
-            <li class="opções__item">Categorias</li>
+            <input type="checkbox" id="opções-menu" class="opções__botão">
+            <label for="opções-menu">
+             <li class="opções__item">Categorias</li>
+            </label>
+
+            <ul class="lista-menu">                
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Creme</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Spray</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Tubo</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Serum</a>
+                </li>
+            </ul>            
             <li class="opções__item"> <a href="#" class="opções__link ">Destaques</a></li>
             <li class="opções__item"> <a href="#" class="opções__link ">Novidades</a></li>
             <li class="opções__item"> <a href="#" class="opções__link ">Perfumaria</a></li>
@@ -111,19 +129,36 @@
     </section>
 
     <section class="contato">
-        <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
-        <p class="contato__texto">Lançamentos , novas linhas de produtos, promoções e mais .</p>
+        <div class="contato__descrição">
+            <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
+            <p class="contato__texto">Lançamentos , novas linhas de produtos, promoções e mais .</p>
+       </div>
         <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
     </section>
 
     <hr />
 
-    <footer class="rodape">
-        <h2 class="rodape__titulo">Created by Elder </h2>
+    <footer class="rodapé">
+        <h2 class="rodapé__titulo">Created by Elder </h2>
+        <ul class="lista-rodapé">
+            <li class="lista-rodapé__titulo">Meio Ambiente</li>
+            <li class="lista-rodapé__item">
+             <img src="img/ecologia.svg" alt="Meio Ambiente">   
+             <a href="#" class="lista-rodapé__link"></a>
+            </li>         
+
+        </ul>
+        <ul class="lista-rodapé">
+            <li class="lista-rodapé__titulo">Institucional</li>
+            <li class="lista-rodapé__item">
+                <img src="img/instituicao.svg" alt="Institucional">   
+                <a href="#" class="lista-rodapé__link"></a>
+               </li>      
+
+        </ul>        
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="img-categorias.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
 
     <script>
         const swiper = new Swiper('.swiper', {

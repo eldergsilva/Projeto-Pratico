@@ -10,6 +10,10 @@
     --verde-degrade: linear-gradient(97.54deg,  #1B5438 35.49%, #4A6C5A 165.37%);
     --fonte-principal: "Poppins";
     --verde: #1A4C2A;
+    --fonte-secundario: "Josefin Sans";
+    --preto: #000000;
+    --cinza: #474646;
+    --cinza-claro: #858585;
 }
 
 body {

@@ -67,7 +67,7 @@
             
         </ul> 
         <div class="container">
-            <a href="sacola.html" class="container__link"><img src="img/carrinho-de-compras.png " alt="Carrinhos de compras" class="container__imagem">
+            <a href="#" class="container__link"><img src="img/carrinho-de-compras.png " alt="Carrinhos de compras" class="container__imagem">
              <p class="container__texto">Minha sacola</p>
             </a>
             <a href="#" class="container__link"><img src="img/login.png " alt="Meu perfil" class="container__imagem">
@@ -76,68 +76,15 @@
         </div>
     </header>
     <section class="banner">
-        <h2 class="banner__titulo">Encontre a sua beleza</h2>
-        <input type="search" class="banner__pesquisa" placeholder="Cosmeticos Naturais">
+        <h2 class="banner__titulo">Sua Sacola</h2>        
     </section>
-    <section class="carrossel">
-        <h2 class="carrossel__titulo">Produtos Naturais</h2>
-        <!-- Slider main container -->
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-
-                <div class="swiper-slide"><a href="#"><img src="img/creme.svg" alt="creme"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/garrafa.svg" alt="Garrafa"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/garrafa-de-spray.svg" alt="garrafa-de-spray"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/spray.svg" alt="spray"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/tubo.svg" alt="tubo"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/serum.svg" alt="serum"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/creme.svg" alt="creme"></a></div>
-
-                
-                <!-- Adicione mais slides conforme necessário -->
-            </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
-        <div class="card">
-            <!-- Seu conteúdo do card aqui -->
-        </div>
+    <section class="sacola">
+        <h2 class="sacola__titulo">Sua sacola está vazia</h2>
+        <p class="sacola__texto">Continue comprando.</p>
+        <a href="#" class="sacola__link">Voltar às compras</a>
     </section>
-    <section class="carrossel">
-        <h2 class="carrossel__titulo">Destaques</h2>
-        <!-- Slider main container -->
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide"><a href="#"><img src="img/garrafa-de-spray.svg" alt="garrafa-de-spray"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/spray.svg" alt="spray"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/tubo.svg" alt="tubo"></a></div>
-                <div class="swiper-slide"><a href="#"><img src="img/serum.svg" alt="serum"></a></div>
-                
-                <!-- Adicione mais slides conforme necessário -->
-            </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
-        <div class="card">
-            <!-- Seu conteúdo do card aqui -->
-        </div>
-    </section>
+    
+    
 
     <section class="contato">
         <div class="contato__descrição">
@@ -171,20 +118,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
 
-    <script>
-        const swiper = new Swiper('.swiper', {
-            spaceBetween: 10,
-            slidesPerView: 3,
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'bullets',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
+
 </body>
 
 </html>

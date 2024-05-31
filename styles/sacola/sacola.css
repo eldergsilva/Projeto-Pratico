@@ -1,38 +1,29 @@
-.sacola {
+section.sacola {
+    background: var(----branco);
+    color: var(--branco);
     text-align: center;
-    padding: 40px;  
-    background-color: var(--cor-de-fundo); 
-    border: var(--cor-de-fundo); 
-    border-radius: 8px;     
-}
-
-
-.sacola__titulo {
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 700; 
-    color: var(--marrom); 
-    margin-bottom: 10px; 
-    font-size: 24px; 
-}
-
-.sacola__texto {
-    font-family: 'Josefin Sans', sans-serif; 
-    font-weight: 400; 
-    color: #666; 
-    margin-bottom: 20px; 
-    font-size: 16px; 
-}
-
-.sacola__link {
+    padding: 2.5em 2em;
+   
+  }
+  
+  .sacola__titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--verde);
+  }
+  
+  .sacola__link {
     display: inline-block;
     padding: 10px 20px;
-    background-color:var(--marrom); 
-    color: #fff; 
-    text-decoration: none; 
-    border-radius: 4px; 
-    transition: background-color 0.3s; 
-}
-
-.sacola__link:hover {
-    background-color:var(--laranja); 
-}
+    background-color:var(--marrom);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sacola__link:hover {
+    background-color: var(--laranja);
+  }
+  

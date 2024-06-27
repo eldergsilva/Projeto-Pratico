@@ -1,0 +1,23 @@
+{
+  "name": "projetofinalalura",
+  "version": "1.0.0",
+  "description": "Construído um Site Responsivo com HTML,CSS e JAVASCRIPT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eldergsilva/amazonia-beauty-co.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eldergsilva/amazonia-beauty-co/issues"
+  },
+  "homepage": "https://github.com/eldergsilva/amazonia-beauty-co#readme",
+  "dependencies": {
+    "mongodb": "^6.7.0"
+  }
+}

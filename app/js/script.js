@@ -5,21 +5,22 @@ const camposDoFormulario = document.querySelectorAll('[required]');
 const formulario = document.querySelector('[data-formulario]');
 const botaoAvancar = document.querySelector('[data-enviar]');
 
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
+if (formulario) {
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    const listaRespostas = {
-        "nome": e.target.elements["nome"].value,
-        "email": e.target.elements["email"].value,
-        "rg": e.target.elements["rg"].value,
-        "cpf": e.target.elements["cpf"].value,
-        "aniversario": e.target.elements["aniversario"].value,
-    };
+        const listaRespostas = {
+            "nome": e.target.elements["nome"].value,
+            "email": e.target.elements["email"].value,
+            "rg": e.target.elements["rg"].value,
+            "cpf": e.target.elements["cpf"].value,
+            "aniversario": e.target.elements["aniversario"].value,
+        };
 
-    localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
-
-    window.location.href = "../pages/cadastro2.html";
-});
+        localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
+        window.location.href = "../pages/cadastro2.html";
+    });
+}
 
 camposDoFormulario.forEach((campo) => {
     campo.addEventListener("blur", () => verificaCampo(campo));
@@ -69,31 +70,31 @@ const mensagens = {
 function verificaCampo(campo) {
     let mensagem = "";
     campo.setCustomValidity('');
-    if (campo.name == "cpf" && campo.value.length >= 11) {
+    
+    if (campo.name === "cpf" && campo.value.length >= 11) {
         ehUmCPF(campo);
     }
-    if (campo.name == "aniversario" && campo.value != "") {
+    if (campo.name === "aniversario" && campo.value !== "") {
         ehMaiorDeIdade(campo);
     }
+    
     tiposDeErro.forEach(erro => {
         if (campo.validity[erro]) {
             mensagem = mensagens[campo.name][erro];
-            console.log(mensagem);
         }
     });
+    
     const mensagemErro = campo.parentNode.querySelector('.mensagem-erro');
-    const validadorDeInput = campo.checkValidity();
-
-    if (!validadorDeInput) {
+    if (mensagemErro) {
         mensagemErro.textContent = mensagem;
-    } else {
-        mensagemErro.textContent = "";
     }
 
     habilitaBotaoAvancar();
 }
 
 function habilitaBotaoAvancar() {
-    const todosValidos = [...camposDoFormulario].every(campo => campo.checkValidity());
-    botaoAvancar.disabled = !todosValidos;
+    if (botaoAvancar) {
+        const todosValidos = [...camposDoFormulario].every(campo => campo.checkValidity());
+        botaoAvancar.disabled = !todosValidos;
+    }
 }

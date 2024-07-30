@@ -10,7 +10,7 @@ const autenticado = (req, res, next) => {
 
     try {
         const decoded = verify(token, jsonSecret.secret);
-        req.userId = decoded.id;
+        req.userId = decoded.id;   
         next();
     } catch (error) {
         return res.status(401).send({ message: 'Token inválido' });

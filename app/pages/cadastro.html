@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-    <title>Amazon Beauty co - Minha Sacola</title>
+    <title>Amazon Beauty co - Cadastro</title>
     <link rel="stylesheet" href="../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../styles/formulario/styles.css">
-
- </head>
+</head>
 
 <body>
     <header class="cabeçalho">
@@ -68,20 +67,21 @@
         </ul>
         <div class="container">
             <a href="sacola.html" class="container__link">
-                <img src="../img/carrinho-de-compras.png" alt="Carrinhos de compras" class="container__imagem">
+                <img src="../img/carrinho-de-compras.png" alt="Carrinho de compras" class="container__imagem">
                 <p class="container__texto">Minha sacola</p>
             </a>
-            <a href="cadastro.html" class="container__link">
+            <a href="login.html" class="container__link">
                 <img src="../img/login.png" alt="Meu perfil" class="container__imagem">
-                <p class="container__texto">Cadastro</p>
+                <p class="container__texto">Login</p>
             </a>
         </div>
     </header>
+    
     <section class="banner">
-        <h2 class="banner__titulo">Cadastre  sua conta </h2>
+        <h2 class="banner__titulo">Cadastre sua conta</h2>
     </section>
+    
     <main class="container">
-
         <section class="formulario">
             <div class="formulario__container">
                 <img src="../img/status-1.png" alt="Etapa um de três" class="formulario__etapas">
@@ -100,29 +100,31 @@
                     <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required />
                     <span class="mensagem-erro"></span>
                 </fieldset>
+                
                 <fieldset class="formulario__campo">
-                    <label class="campo__etiqueta" for="rg">Senha</label>
-                    <input name="Senha" id="senha" class="campo__escrita campo__escrita--menor" type="text" required />
+                    <label class="campo__etiqueta" for="senha">Senha</label>
+                    <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="text" required />
                     <span class="mensagem-erro"></span>
                 </fieldset>
+                
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="cpf">CPF (apenas números)</label>
                     <input name="cpf" id="cpf" class="campo__escrita campo__escrita--menor" required type="text"
                         minlength="11" maxlength="14" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" />
                     <span class="mensagem-erro"></span>
                 </fieldset>
+                
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="aniversario">Data de nascimento</label>
                     <input name="aniversario" id="aniversario" class="campo__escrita campo__escrita--menor" type="date"
                         required />
                     <span class="mensagem-erro"></span>
                 </fieldset>
+                
                 <fieldset class="formulario__termos">
                     <input name="termos" class="termos__input" type="checkbox" required>
                     <p class="termos__texto">Li e estou ciente quanto às condições de tratamento dos meus dados conforme
-                        descrito na Política
-                        de
-                        Privacidade do banco.</p>
+                        descrito na Política de Privacidade do banco.</p>
                     <span class="mensagem-erro"></span>
                 </fieldset>
 
@@ -131,9 +133,7 @@
                     <span class="mensagem-erro"></span>
                 </div>
             </form>
-
         </section>
-
     </main>
     
     <section class="contato">
@@ -143,7 +143,9 @@
         </div>
         <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
     </section>
+    
     <hr />
+    
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
         <ul class="lista-rodapé">
@@ -161,10 +163,10 @@
             </li>
         </ul>
     </footer>
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/script.js" type="module"></script>
+    <script src="../js/cadastro.js"></script>
 </body>
 
 </html>
-

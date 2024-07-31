@@ -20,8 +20,7 @@ class AuthService {
         const accessToken = sign(
             {
                 id: usuario._id,
-                email: usuario.email,
-                nome: usuario.nome  
+                email: usuario.email
             },
             jsonSecret.secret,
             {
@@ -29,7 +28,7 @@ class AuthService {
             }
         );
 
-          return { accessToken, usuario: { nome: usuario.nome, email: usuario.email } };
+        return { accessToken };
     }
 }
 

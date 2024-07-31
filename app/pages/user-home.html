@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-    <title>Amazon Beauty co - Minha Sacola</title>
+    <title>Amazon Beauty co - Usuário</title>
     <link rel="stylesheet" href="../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
-
-
- </head>
+</head>
 
 <body>
     <header class="cabeçalho">
@@ -26,18 +24,10 @@
             </label>
             <ul class="lista-menu">
                 <li class="lista-menu__titulo">Categorias</li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Creme</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Spray</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Tubo</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Serum</a>
-                </li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Creme</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Spray</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Tubo</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Serum</a></li>
             </ul>
             <img src="../img/logo.png" alt="Logo da Amazon Beauty co" class="container__imagem">
             <h1 class="container__titulo"><b class="container__titulo--negrito">Amazon</b> Beauty co</h1>
@@ -48,18 +38,10 @@
                 <li class="opções__item">Categorias</li>
             </label>
             <ul class="lista-menu">
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Creme</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Spray</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Tubo</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Serum</a>
-                </li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Creme</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Spray</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Tubo</a></li>
+                <li class="lista-menu__item"><a href="#" class="lista-menu__link">Serum</a></li>
             </ul>
             <li class="opções__item"><a href="#" class="opções__link">Destaques</a></li>
             <li class="opções__item"><a href="#" class="opções__link">Novidades</a></li>
@@ -67,50 +49,53 @@
             <li class="opções__item"><a href="#" class="opções__link">Promoções</a></li>
         </ul>
         <div class="container">
-            <a href="#" class="container__link">
-                <img src="../img/carrinho-de-compras.png" alt="Carrinhos de compras" class="container__imagem">
+            <a href="../pages/sacola.html" class="container__link">
+                <img src="../img/carrinho-de-compras.png" alt="Carrinho de compras" class="container__imagem">
                 <p class="container__texto">Minha sacola</p>
             </a>
-            <a href="cadastro.html" class="container__link">
+            <div class="container__link">
                 <img src="../img/login.png" alt="Meu perfil" class="container__imagem">
-                <p class="container__texto">Cadastro</p>
-            </a>
+                <p class="container__texto" id="userGreeting">Olá, Usuário</p>
+            </div>
         </div>
     </header>
-    <section class="banner">
-        <h2 class="banner__titulo">Sua Sacola</h2>
-    </section>
-    <section class="sacola">
-        <h2 class="sacola__titulo">Sua sacola está vazia</h2>
-         <a href="../index.html" class="sacola__link">Voltar às compras</a>
-    </section>
-    <section class="carrossel">
-        <h2 class="carrossel__titulo">Aproveite esses Destaques</h2>
-        <!-- Slider main container -->
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
 
+    <section class="banner">
+        <h2 class="banner__titulo">Encontre a sua beleza</h2>
+        <input type="search" class="banner__pesquisa" placeholder="Cosmeticos Naturais">
+    </section>
+
+    <section class="carrossel">
+        <h2 class="carrossel__titulo">Produtos Naturais</h2>
+        <div class="swiper">
             <div class="swiper-wrapper">
-                <!-- Slides -->
+                <div class="swiper-slide"><a href="#"><img src="../img/creme.svg" alt="creme"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/garrafa.svg" alt="Garrafa"></a></div>
                 <div class="swiper-slide"><a href="#"><img src="../img/garrafa-de-spray.svg" alt="garrafa-de-spray"></a></div>
                 <div class="swiper-slide"><a href="#"><img src="../img/spray.svg" alt="spray"></a></div>
                 <div class="swiper-slide"><a href="#"><img src="../img/tubo.svg" alt="tubo"></a></div>
                 <div class="swiper-slide"><a href="#"><img src="../img/serum.svg" alt="serum"></a></div>
-                
-                <!-- Adicione mais slides conforme necessário -->
+                <div class="swiper-slide"><a href="#"><img src="../img/creme.svg" alt="creme"></a></div>
             </div>
-
-            <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
+    </section>
 
-        <div class="card">
-            <!-- Seu conteúdo do card aqui -->
+    <section class="carrossel">
+        <h2 class="carrossel__titulo">Destaques</h2>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href="#"><img src="../img/garrafa-de-spray.svg" alt="garrafa-de-spray"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/spray.svg" alt="spray"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/tubo.svg" alt="tubo"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/serum.svg" alt="serum"></a></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
+
     <section class="contato">
         <div class="contato__descrição">
             <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
@@ -118,7 +103,9 @@
         </div>
         <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
     </section>
+
     <hr />
+
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
         <ul class="lista-rodapé">
@@ -136,6 +123,7 @@
             </li>
         </ul>
     </footer>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -150,6 +138,32 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+        });
+
+        // Script para exibir o primeiro nome do usuário
+        document.addEventListener('DOMContentLoaded', () => {
+            const userJson = localStorage.getItem('usuario');
+
+            if (userJson) {
+                try {
+                    const user = JSON.parse(userJson);
+                    
+                    if (user && user.nome) {
+                        // Divide o nome completo e pega o primeiro nome
+                        const firstName = user.nome.split(' ')[0];
+                        document.getElementById('userGreeting').textContent = `Olá, ${firstName}`;
+                    } else {
+                        console.error('Nome do usuário não encontrado no localStorage');
+                        document.getElementById('userGreeting').textContent = 'Olá, usuário';
+                    }
+                } catch (error) {
+                    console.error('Erro ao analisar o JSON do usuário:', error);
+                    document.getElementById('userGreeting').textContent = 'Olá, usuário';
+                }
+            } else {
+                console.error('Dados do usuário não encontrados no localStorage');
+                document.getElementById('userGreeting').textContent = 'Olá, usuário';
+            }
         });
     </script>
 </body>

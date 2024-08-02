@@ -1,0 +1,116 @@
+estrutura de pasta ;
+
+>api
+>app
+>node_modules
+.gitignore
+package-lock.json
+package.json
+README.md
+
+
+>api :
+ >node_modules
+ >src
+ .env
+
+ >src :
+>config
+>controllers
+>middleware
+>models
+>routes
+>services
+
+
+>config:
+db.js
+jsonSecret.js
+
+>controllers:
+authController.js
+produtoController.js
+sacolaController.js
+usuarioController.js
+
+>middleware:
+autenticado.js
+
+>models:
+index.js(const UsuarioModel = require('./usuarioModel');
+
+module.exports = {
+    UsuarioModel,
+};
+) 
+ProdutoModel.js
+sacolaModel.js
+usuarioModel.js
+
+>routes:
+authRoute.js
+index.js (const bodyParser = require('body-parser');
+const usuario = require('./usuariosRoute');
+const auth = require('./authRoute');
+const sacola = require('./sacolaRoute');  
+
+module.exports = app => {
+  app.use(
+    bodyParser.json(),
+    auth,
+    usuario,
+    sacola
+  );
+};
+)
+produtoRoute.js
+sacolaRoute.js
+usuariosRoute.js
+
+>services:
+authService.js
+produtoService.js
+sacolaService.js
+usuarioService.js  
+
+.env
+index.js(require('dotenv').config();
+
+const express = require('express');
+const connectDB = require('./src/config/db');
+const routes = require('./src/routes');
+
+const app = express();
+const cors = require('cors');
+
+app.use(cors({
+    origin: '*'  
+}));
+const port = process.env.PORT || 3000;
+
+connectDB();
+
+app.use(express.json());
+
+routes(app);
+
+app.listen(port, () => console.log(`Servidor está rodando na porta ${port}`));
+
+module.exports = app;
+)
+
+> app :
+>img
+>js
+>pages
+cadastro.html
+cadastrovalido.html
+login.html
+sacola.html
+user-home.html
+index.html
+>styles
+
+index.html
+reset.css
+styles.css

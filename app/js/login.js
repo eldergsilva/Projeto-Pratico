@@ -1,14 +1,8 @@
-document.querySelector('form[data-formulario]').addEventListener('submit', async (event) => {
+async function handleSubmit(event) {
     event.preventDefault();
   
-    const email = document.querySelector('#email').value;
-    const senha = document.querySelector('#senha').value;
-  
-    // Validação básica (adicione mais validações conforme necessário)
-    if (!email || !senha) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
   
     try {
       const response = await fetch('http://localhost:3000/auth/login', {
@@ -21,16 +15,25 @@ document.querySelector('form[data-formulario]').addEventListener('submit', async
   
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
+  
+        // Armazenar as informações do usuário no localStorage
+        localStorage.setItem('accessToken', data.accessToken);
+        localStorage.setItem('userEmail', data.usuario.email); // Armazenar o ID do usuário
+        localStorage.setItem('userName', data.usuario.nome);
+  
+        // Redirecionar para a página user-home.html
         window.location.href = '../pages/user-home.html';
       } else {
-        const errorData = await response.json();
-        alert('Login falhou: ' + errorData.message); // Exibe mensagem de erro detalhada
+        console.error('Erro ao fazer login:', response.statusText);
+        // Exibir uma mensagem de erro para o usuário
+        alert('Email ou senha inválidos. Tente novamente.');
       }
     } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      alert('Erro inesperado. Por favor, tente novamente.');
+      console.error('Erro:', error);
+      alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
     }
-  });
+  }
+  
+  // Adicionar o event listener ao formulário (se necessário)
+  document.getElementById('loginForm').addEventListener('submit', handleSubmit);
   

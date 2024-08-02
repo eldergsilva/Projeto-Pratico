@@ -11,7 +11,7 @@ sempre que tiver um  > quer dizer que é uma pasta
 .env
 .gitigone
 codigos.txt
-index.html
+
 package.json
 README.md
 package.json

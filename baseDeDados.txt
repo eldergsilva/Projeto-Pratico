@@ -1,7 +1,0 @@
-{
-    "nome": "João Silva",
-    "email": "joao@example.com",
-    "senha": "senha123",
-    "cpf": "123.456.789-00",
-    "dataDeNascimento": "1990-01-01",
-}

@@ -1,0 +1,130 @@
+body {
+    background-color: rgb(236, 254, 242);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #474646;
+}
+
+.container {
+    margin: 2em 5em;
+}
+
+.breadcrumb {
+    margin-bottom: 2em;
+}
+
+.breadcrumb li {
+    display: inline;
+    font-size: 16px;
+    color: #4A6C5A;
+}
+
+.breadcrumb li+li:before {
+    padding: 8px;
+    color: #4A6C5A;
+    content: ">";
+}
+
+.breadcrumb__pagina {
+    font-weight: 700;
+}
+
+.listar {
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #FFFFFF;
+    border: 2px solid #858585;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1200px;
+}
+
+.listar__titulo-texto {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1A4C2A;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.usuario-card {
+    background-color: #FFFFFF;
+    border: 2px solid #858585;
+    border-radius: 20px;
+    padding: 1em;
+    width: 30vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usuario-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.usuario-card h3 {
+    font-size: 20px;
+    color: #1A4C2A;
+    margin-bottom: 0.5em;
+}
+
+.usuario-card p {
+    margin: 0.5em 0;
+    color: #858585;
+}
+
+.usuario-card a {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 10px 20px;
+    background-color: #8B5A2B;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.usuario-card a:hover {
+    background-color: #ce9325;
+}
+
+.corpo__link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8B5A2B;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin: 1em auto;
+    display: block;
+}
+
+.corpo__link:hover {
+    background-color: #ce9325;
+}
+
+@media screen and (max-width: 900px) {
+    .user-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .usuario-card {
+        width: 80%;
+    }
+
+    .listar {
+        width: 90%;
+        padding: 1em;
+    }
+}

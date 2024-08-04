@@ -1,0 +1,70 @@
+section/* Adiciona margem e centraliza a seção corpo */
+.corpo {
+    margin: 3em auto;
+    width: 90%;
+    max-width: 1200px; /* Ajuste conforme necessário */
+}
+
+/* Estilo do título na seção corpo */
+.corpo__titulo-texto {
+    margin: 1em 0;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+}
+
+/* Contêiner para os cartões de usuário */
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+/* Estilo dos cartões de usuário */
+.user-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1em;
+    width: 300px; /* Ajuste conforme necessário */
+    box-sizing: border-box;
+}
+
+/* Estilo dos títulos dentro dos cartões */
+.user-card h3 {
+    margin: 0 0 0.5em;
+    font-size: 18px;
+}
+
+/* Estilo dos parágrafos dentro dos cartões */
+.user-card p {
+    margin: 0.5em 0;
+    font-size: 16px;
+}
+
+/* Estilo do link "Voltar" */
+.corpo__link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--marrom);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 2em;
+    text-align: center;
+}
+
+.corpo__link:hover {
+    background-color: var(--laranja);
+}
+
+/* Responsividade */
+@media screen and (max-width: 900px) {
+    .user-card {
+        width: 100%;
+    }
+}

@@ -32,7 +32,18 @@ class UsuarioController {
             res.status(400).send({ message: error.message })
         }
     }
+    
+    static async buscarUsuarioPorEmail(req, res) {
+        try {
+            const { email } = req.params;   
+            const usuario = await usuarioService.buscarUsuarioPorEmail(email);
 
+            res.status(200).json(usuario);
+        } catch (error) {
+            res.status(404).send({ message: error.message });
+        }
+    }
+    
     static async editarUsuario(req, res) {
         const { id } = req.params
         const { nome, email, cpf, dataNascimento } = req.body

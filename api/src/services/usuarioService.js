@@ -7,7 +7,12 @@ class UsuarioService {
         const usuario = await UsuarioModel.findOne({ email: dto.email });
 
         if (usuario) {
-            throw new Error('Usuario ja cadastrado');
+            throw new Error('Usuario ja cadastrado Com esse Email');
+        }
+
+        const usuarioPorCpf = await UsuarioModel.findOne({ cpf: dto.cpf });
+        if (usuarioPorCpf) {
+            throw new Error('Usuário já cadastrado com este CPF.');
         }
 
         try {
@@ -43,7 +48,17 @@ class UsuarioService {
 
         return usuario;
     }
+    
+    async buscarUsuarioPorEmail(email) {
+        const usuario = await UsuarioModel.findOne({ email });
 
+        if (!usuario) {
+            throw new Error('Usuário não encontrado com este e-mail.');
+        }
+
+        return usuario;
+    }
+    
     async editarUsuario(dto) {
         const usuario = await this.buscarUsuarioPorId(dto.id);
 

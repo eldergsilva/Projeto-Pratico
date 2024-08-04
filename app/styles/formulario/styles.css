@@ -140,6 +140,15 @@
     color: var(--verde);
 }
 
+.formulario__nao-cadastrado {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.formulario__link {
+    margin-top: 1em;
+}
+ 
 @media screen and (max-width: 900px) {
     .formulario {
         width: 70%;

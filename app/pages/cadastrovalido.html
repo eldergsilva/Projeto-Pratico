@@ -49,11 +49,7 @@
             <li class="opções__item"><a href="#" class="opções__link">Perfumaria</a></li>
             <li class="opções__item"><a href="#" class="opções__link">Promoções</a></li>
         </ul>
-        <div class="container">
-            <a href="sacola.html" class="container__link">
-                <img src="../img/carrinho-de-compras.png" alt="Carrinhos de compras" class="container__imagem">
-                <p class="container__texto">Minha sacola</p>
-            </a>
+        <div class="container">            
             <a href="login.html" class="container__link">
                 <img src="../img/login.png" alt="Meu perfil" class="container__imagem">
                 <p class="container__texto">Login</p>
@@ -67,12 +63,10 @@
 
     <main class="container">
         <section class="formulario">
-            <div class="formulario__container">
-                <img src="../img/status-3.png" alt="Cadastro concluído" class="formulario__etapas">
+            <div class="formulario__container">                 
                 <h2 class="formulario__titulo-texto">Parabéns, <span id="nome"></span>!</h2>
                 <img src="../img/Ícone celebração.png" alt="Ícone de celebração" class="formulario__imagem">
-                <p class="formulario__texto-secundario">Seu cadastro foi concluído com sucesso. Você receberá todos os dados por e-mail.</p>
-                <a href="login.html" class="formulario__link">Clique aqui para fazer o login</a>
+                <a href="./login.html" class="formulario__link">Clique aqui para fazer o login</a>
 
             </div>
         </section>
@@ -108,8 +102,22 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/script.js" type="module"></script>
-    <script src="../js/cadastrovalido.js" type="module"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             
+            const urlParams = new URLSearchParams(window.location.search);
+            const nome = urlParams.get('nome');
+    
+             
+            const nomeElemento = document.getElementById('nome');
+            if (nome) {
+                nomeElemento.textContent = nome;
+            } else {
+                nomeElemento.textContent = 'Usuário';
+            }
+        });
+    </script>
 </body>
 
 </html>

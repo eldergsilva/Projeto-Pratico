@@ -18,63 +18,13 @@
 
 <body>
     <header class="cabeçalho">
-        <div class="container">
-            <input type="checkbox" id="menu" class="container__botao">
-            <label for="menu" class="container__rotulo">
-                <span class="cabeçalho__menu-hamburguer container__imagem"></span>
-            </label>
-            <ul class="lista-menu">
-                <li class="lista-menu__titulo">Categorias</li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Creme</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Spray</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Tubo</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Serum</a>
-                </li>
-            </ul>
+        <div class="container">            
             <img src="../img/logo.png" alt="Logo da Amazon Beauty co" class="container__imagem">
             <h1 class="container__titulo"><b class="container__titulo--negrito">Amazon</b> Beauty co</h1>
-        </div>
-        <ul class="opções">
-            <input type="checkbox" id="opções-menu" class="opções__botão">
-            <label for="opções-menu" class="opções__rotulo">
-                <li class="opções__item">Categorias</li>
-            </label>
-            <ul class="lista-menu">
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Creme</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Spray</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Tubo</a>
-                </li>
-                <li class="lista-menu__item">
-                    <a href="#" class="lista-menu__link">Serum</a>
-                </li>
-            </ul>
-            <li class="opções__item"><a href="#" class="opções__link">Destaques</a></li>
-            <li class="opções__item"><a href="#" class="opções__link">Novidades</a></li>
-            <li class="opções__item"><a href="#" class="opções__link">Perfumaria</a></li>
-            <li class="opções__item"><a href="#" class="opções__link">Promoções</a></li>
-        </ul>
-        <div class="container">
-            <a href="sacola.html" class="container__link">
-                <img src="../img/carrinho-de-compras.png" alt="Carrinho de compras" class="container__imagem">
-                <p class="container__texto">Minha sacola</p>
-            </a>
-            <a href="login.html" class="container__link">
-                <img src="../img/login.png" alt="Meu perfil" class="container__imagem">
-                <p class="container__texto">Login</p>
-            </a>
-        </div>
+        </div>               
+        <a id="home" href="../index.html" class="container__link">
+            <img src="../img/home.png" alt="home" class="container__imagem">              
+        </a> 
     </header>
     
     <section class="banner">
@@ -83,8 +33,7 @@
     
     <main class="container">
         <section class="formulario">
-            <div class="formulario__container">
-                <img src="../img/status-1.png" alt="Etapa um de três" class="formulario__etapas">
+            <div class="formulario__container">                
                 <h2 class="formulario__titulo-texto">Preencha os campos abaixo para criar seu cadastro!</h2>
             </div>
 
@@ -97,13 +46,13 @@
 
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="email">E-mail</label>
-                    <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required />
+                    <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required autocomplete="username">
                     <span class="mensagem-erro"></span>
                 </fieldset>
                 
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="senha">Senha</label>
-                    <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="text" required />
+                    <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="password" required autocomplete="current-password" minlength="6" maxlength="14">
                     <span class="mensagem-erro"></span>
                 </fieldset>
                 
@@ -129,13 +78,18 @@
                 </fieldset>
 
                 <div>
-                    <input value="Avançar" class="formulario__botao" id="enviar" data-botao-enviar type="submit">
+                    <input value="Avançar" class="formulario__botao" id="enviar" data-enviar type="submit">
                     <span class="mensagem-erro"></span>
                 </div>
             </form>
+            <div class="formulario__nao-cadastrado">
+                <p>Não deseja cadastrar agora ?</p>
+                <a href="../index.html" class="formulario__link">Voltar para Home</a>
+            </div>
         </section>
-    </main>
-    
+
+    </main>  
+
     <section class="contato">
         <div class="contato__descrição">
             <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
@@ -147,26 +101,14 @@
     <hr />
     
     <footer class="rodapé">
-        <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
-        <ul class="lista-rodapé">
-            <li class="lista-rodapé__titulo">Meio Ambiente</li>
-            <li class="lista-rodapé__item">
-                <img src="../img/ecologia.svg" alt="Meio Ambiente">
-                <a href="#" class="lista-rodapé__link"></a>
-            </li>
-        </ul>
-        <ul class="lista-rodapé">
-            <li class="lista-rodapé__titulo">Institucional</li>
-            <li class="lista-rodapé__item">
-                <img src="../img/instituicao.svg" alt="Institucional">
-                <a href="#" class="lista-rodapé__link"></a>
-            </li>
-        </ul>
+        <!-- ... seu código do footer ... -->
     </footer>
-    
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/cadastro.js"></script>
+  
+    <script src="../js/script.js" type="module"></script> 
+    <script src="../js/validar-idade.js" type="module"></script>
+    <script src="../js/validar-data-nascimento.js" type="module"></script> 
+    <script src="../js/validar-cpf.js" type="module"></script>  
+    <script src="../js/cadastro.js" type="module"></script> 
 </body>
 
 </html>

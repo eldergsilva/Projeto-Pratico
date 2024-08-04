@@ -1,18 +1,9 @@
-import { validarFormulario } from './script.js';
-
- 
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.querySelector('form[data-formulario]');
     const botaoEnviar = document.querySelector('#enviar');
 
     formulario.addEventListener('submit', async (event) => {
         event.preventDefault();
-
-         
-        if (!validarFormulario()) {
-            document.querySelector('.mensagem-erro').textContent = 'Por favor, corrija os erros no formulário.';
-            return;
-        }
 
         const dadosFormulario = new FormData(formulario);
         const dados = {
@@ -27,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const resposta = await fetch('http://localhost:3000/usuarios', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('accessToken')  
                 },
                 body: JSON.stringify(dados)
             });

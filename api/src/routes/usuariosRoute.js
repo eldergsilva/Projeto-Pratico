@@ -7,6 +7,7 @@ router.post('/usuarios', UsuarioController.cadastrar);
 router.use(autenticado);
 
 router.get('/usuarios', UsuarioController.buscarTodosUsuarios);
+router.get('/usuarios/email/:email', UsuarioController.buscarUsuarioPorEmail);
 router.get('/usuarios/id/:id', UsuarioController.buscarUsuarioPorId);
 router.put('/usuarios/id/:id', UsuarioController.editarUsuario);
 router.delete('/usuarios/id/:id', UsuarioController.deletarUsuario);

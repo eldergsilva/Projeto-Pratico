@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Amazon Beauty co Editar User</title>
+    <title>Amazon Beauty co Editar Usuário</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">     
+    <link rel="stylesheet" href="../../styles.css">   
+    <link rel="stylesheet" href="../../styles/formulario/styles.css">  
 </head>
 
 <body>
@@ -34,21 +33,57 @@
     </header>
     
     <section class="banner">
-        <h2 class="banner__titulo">Editar</h2>          
+        <h2 class="banner__titulo">Editar Conta</h2>
     </section>
-    <section class="corpo">
-        <h1>Editar Usuários</h1>
-
-    </section>
-    <section class="contato">
-        <div class="contato__descrição">
-            <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
-            <p class="contato__texto">Lançamentos, novas linhas de produtos, promoções e mais.</p>
+    
+    <section class="formulario">
+        <div class="formulario__container">
+            <h2 class="formulario__titulo-texto">Digite o e-mail do usuário que deseja editar</h2>
         </div>
-        <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
-    </section>
 
-    <hr />
+        <form id="searchUserForm">
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="email">E-mail</label>
+                <input name="email" id="emailSearch" class="campo__escrita" type="email" required />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+        
+            <div>
+                <input value="Buscar" class="formulario__botao" id="search" type="submit">
+                <span class="mensagem-erro"></span>
+            </div>
+        </form>
+
+        <div id="userDetails" style="display:none;">
+            <h2 class="formulario__titulo-texto">Editar Dados do Usuário</h2>
+            <form id="editUserForm">
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="nome">Nome</label>
+                    <input name="nome" id="nome" class="campo__escrita" type="text" />
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="email">E-mail</label>
+                    <input name="email" id="emailEdit" class="campo__escrita" type="email" />
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="senha">Senha</label>
+                    <input name="senha" id="senha" class="campo__escrita" type="password" />
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="cpf">CPF</label>
+                    <input name="cpf" id="cpf" class="campo__escrita" type="text" />
+                </fieldset>
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="dataNascimento">Data de Nascimento</label>
+                    <input name="dataNascimento" id="dataNascimento" class="campo__escrita" type="date" />
+                </fieldset>
+                <div>
+                    <input value="Atualizar" class="formulario__botao" id="update" type="submit">
+                    <span class="mensagem-erro"></span>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
@@ -68,12 +103,10 @@
         </ul>        
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-    <script src="../../js/logout.js"></script>
-    <script src="../../js/saudacao.js "></script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/usuario/editar.js"></script>
+    <script src="../../js/usuario/logout.js"></script>
+    <script src="../../js/saudacao.js"></script>
 </body>
 
 </html>

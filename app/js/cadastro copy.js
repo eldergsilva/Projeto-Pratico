@@ -1,18 +1,12 @@
-import { validarFormulario } from './script.js';
-
- 
+import { minhaFuncao } from './script.js'; // Ajuste o caminho conforme necessário
+import { validarCPF } from './valida-cpf.js';
+import { validaIdade } from './valida-idade.js';
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.querySelector('form[data-formulario]');
     const botaoEnviar = document.querySelector('#enviar');
 
     formulario.addEventListener('submit', async (event) => {
         event.preventDefault();
-
-         
-        if (!validarFormulario()) {
-            document.querySelector('.mensagem-erro').textContent = 'Por favor, corrija os erros no formulário.';
-            return;
-        }
 
         const dadosFormulario = new FormData(formulario);
         const dados = {
@@ -22,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
             cpf: dadosFormulario.get('cpf'),
             dataNascimento: dadosFormulario.get('aniversario')
         };
+
+        console.log('Dados enviados:', dados);
 
         try {
             const resposta = await fetch('http://localhost:3000/usuarios', {
@@ -33,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const resultado = await resposta.json();
+            console.log('Resposta do servidor:', resultado);
 
             if (resposta.ok) {
                 window.location.href = `cadastrovalido.html?nome=${encodeURIComponent(dados.nome)}`;

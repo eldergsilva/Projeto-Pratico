@@ -21,12 +21,15 @@
         <div class="container">            
             <img src="../../img/logo.png" alt="Logo da Amazon Beauty co" class="container__imagem">
             <h1 class="container__titulo"><b class="container__titulo--negrito">Amazon</b> Beauty co</h1>
-        </div>               
+        </div>             
           
         <div class="saudacao">            
-            <p>Olá, <span id="userFirstName"></span></p>
-        </div>
-        <div class="container">
+            <p>Olá, <span id="userFirstName"></span></p>            
+        </div>    
+        <div class="container">          
+            <a id="adm" href="../user-home.html" class="container__link">
+                <img src="../../img/conta-de-usuario.png" alt="sair" class="container__imagem">                
+            </a>
             <a id="logout" href="#" class="container__link">
                 <img src="../../img/logout.png" alt="sair" class="container__imagem">                
             </a>
@@ -37,12 +40,10 @@
     <section class="banner">
         <h2 class="banner__titulo">Cadastre sua conta</h2>
     </section>
-    
-   
+    <main class="container">
         <section class="formulario">
-            <div class="formulario__container">
-                
-                <h2 class="formulario__titulo-texto">Preencha os campos abaixo para criar seu cadastro!</h2>
+            <div class="formulario__container">                
+                <h2 class="formulario__titulo-texto">Preencha os campos abaixo para Adicionar novo usuario</h2>
             </div>
 
             <form class="principal__formulario" data-formulario>
@@ -54,13 +55,13 @@
 
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="email">E-mail</label>
-                    <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required />
+                    <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required autocomplete="username">
                     <span class="mensagem-erro"></span>
                 </fieldset>
                 
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="senha">Senha</label>
-                    <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="text" required />
+                    <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="password" required autocomplete="current-password" minlength="6" maxlength="14">
                     <span class="mensagem-erro"></span>
                 </fieldset>
                 
@@ -86,10 +87,17 @@
                 </fieldset>
 
                 <div>
-                    <input value="Avançar" class="formulario__botao" id="enviar" data-botao-enviar type="submit">
+                    <input value="Avançar" class="formulario__botao" id="enviar" data-enviar type="submit">
                     <span class="mensagem-erro"></span>
                 </div>
             </form>
+            <div class="formulario__nao-cadastrado">
+                <p>Não deseja cadastrar agora ?</p>
+                <a href="../../index.html" class="formulario__link">Voltar para Home</a>
+            </div>
+        </section>
+
+    </main>  
         </section>
     <section class="contato">
         <div class="contato__descrição">
@@ -120,11 +128,14 @@
     </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-    <script src="../../js/logout.js"></script>
-    <script src="../../js/saudacao.js "></script>
-    
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../../js/script.js"></script>    
+    <script type="module" src="../../js/valida-cpf.js"></script>
+    <script type="module" src="../../js/valida-idade.js"></script>
+    <script type="module" src="../../js/valida-data-nascimento.js"></script>
+    <script type="module" src="../../js/cadastro.js"></script>
+    <script src="../../js/usuario/logout.js"></script>
+    <script src="../../js/saudacao.js"></script>
 </body>
 
 </html>

@@ -12,6 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      PORT: ${{ secrets.PORT }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -29,3 +35,12 @@ jobs:
 
     - name: Build
       run: npm run build
+       
+
+    - name: Start Application
+      run: npm start
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        PORT: ${{ secrets.PORT }}
+        PASSWORD: ${{ secrets.PASSWORD }}

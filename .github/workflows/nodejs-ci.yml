@@ -36,10 +36,9 @@ jobs:
         cd api
         npm list --depth=0
 
-    - name: Debug - List environment variables
-      run: env
+ 
 
     - name: Start Application
       run: |
         cd api
-        npm start
+        npm start 

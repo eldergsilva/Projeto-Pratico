@@ -1,4 +1,3 @@
-
 name: Node.js CI
 
 on:
@@ -14,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PASSWORD: ${{ secrets.PASSWORD }}
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       PORT: ${{ secrets.PORT }}
@@ -46,4 +44,3 @@ jobs:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         PORT: ${{ secrets.PORT }}
-        PASSWORD: ${{ secrets.PASSWORD }}

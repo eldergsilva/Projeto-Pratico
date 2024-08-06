@@ -4,7 +4,7 @@
   "description": "Construído um Site Responsivo com HTML,CSS e JAVASCRIPT",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./api/index.js"
+    "start": "node ./api/index.js"
   },
   "repository": {
     "type": "git",

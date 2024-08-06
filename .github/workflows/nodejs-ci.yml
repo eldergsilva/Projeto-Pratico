@@ -36,7 +36,17 @@ jobs:
         cd api
         npm list --depth=0
 
+    - name: Print environment variables
+      run: |
+        echo "MONGODB_URI=${{ secrets.MONGODB_URI }}"
+        echo "SECRET_KEY=${{ secrets.SECRET_KEY }}"
+        echo "PORT=${{ secrets.PORT }}"
+
     - name: Start Application
       run: |
         cd api
         npm start
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        PORT: ${{ secrets.PORT }}

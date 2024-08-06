@@ -31,14 +31,7 @@ jobs:
         cd api
         npm install
 
-    - name: List installed packages
+    - name: Run Application
       run: |
         cd api
-        npm list --depth=0
-
- 
-
-    - name: Start Application
-      run: |
-        cd api
-        npm start 
+        npm start

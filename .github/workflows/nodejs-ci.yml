@@ -28,10 +28,14 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd api
+        npm install
 
     - name: Start Application
-      run: npm start
+      run: |
+        cd api
+        npm start
       env:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}

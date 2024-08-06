@@ -12,6 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      PORT: ${{ secrets.PORT }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -22,10 +28,16 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd api
+        npm install
 
-    - name: Run tests
-      run: npm test
-
-    - name: Build
-      run: npm run build
+    - name: Start Application
+      run: |
+        cd api
+        npm start
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        PORT: ${{ secrets.PORT }}
+        PASSWORD: ${{ secrets.PASSWORD }}

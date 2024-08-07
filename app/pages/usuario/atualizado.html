@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Amazon Beauty co Editar Usuário</title>
+    <title>Amazon Beauty co - Usuário Atualizado</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,22 +35,22 @@
     </header>
     
     <section class="banner">
-        <h2 class="banner__titulo">Editar Conta</h2>
+        <h2 class="banner__titulo">Atualização de Conta</h2>
     </section>
-    <form id="searchUserForm">
-        <fieldset class="formulario__campo">
-            <label class="campo__etiqueta" for="email">E-mail</label>
-            <input name="email" id="emailSearch" class="campo__escrita" type="email" required />
-            <span class="mensagem-erro"></span>
-        </fieldset>
-    
-        <div>
-            <input value="Buscar" class="formulario__botao" id="search" type="submit">
-            <span class="mensagem-erro"></span>
+
+    <section class="listar">
+        <div class="listar__container">
+            <h2 class="listar__titulo">Usuário Atualizado com Sucesso</h2>
+            <p class="listar__mensagem">Os dados do usuário foram atualizados com sucesso.</p>
+            <div class="listar__dados">
+                <h3>Dados Atualizados</h3>
+                <p><strong>Nome:</strong> <span id="userName"></span></p>
+                <p><strong>E-mail:</strong> <span id="userEmail"></span></p>
+                <p><strong>CPF:</strong> <span id="userCpf"></span></p>
+                <p><strong>Data de Nascimento:</strong> <span id="userDob"></span></p>
+            </div>
         </div>
-    </form>
-</section>
-        
+    </section>
 
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
@@ -71,9 +71,21 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/usuario/editar.js"></script>
-    <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('updatedUser'));
+
+            if (user) {
+                document.getElementById('userName').textContent = user.nome;
+                document.getElementById('userEmail').textContent = user.email;
+                document.getElementById('userCpf').textContent = user.cpf;
+                document.getElementById('userDob').textContent = user.dataNascimento;
+            } else {
+                document.querySelector('.listar__mensagem').textContent = 'Nenhum dado de usuário encontrado.';
+            }
+        });
+    </script>
 </body>
 
 </html>

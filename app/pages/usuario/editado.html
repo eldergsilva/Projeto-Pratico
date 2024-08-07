@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Amazon Beauty co - Edição Concluída</title>
+    <title>Amazon Beauty co Editar Usuário</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,22 +24,27 @@
         <div class="saudacao">            
             <p>Olá, <span id="userFirstName"></span></p>
         </div>
-        <div class="container">
+        <div class="container">          
+            <a id="adm" href="../user-home.html" class="container__link">
+                <img src="../../img/conta-de-usuario.png" alt="sair" class="container__imagem">                
+            </a>
             <a id="logout" href="#" class="container__link">
                 <img src="../../img/logout.png" alt="sair" class="container__imagem">                
             </a>
         </div>
     </header>
-
+    
     <section class="banner">
-        <h2 class="banner__titulo">Edição Concluída</h2>
+        <h2 class="banner__titulo">Editar Conta</h2>
     </section>
-
-    <section class="formulario">
-        <div class="formulario__container">
-            <h2 class="formulario__titulo-texto">Dados Atualizados com Sucesso</h2>
-            <p id="userDetails"></p>
-        </div>
+    <section class="banner">
+        <h2 class="banner__titulo">Dados Atualizados</h2>
+    </section>
+    
+    <section class="listar">
+        <h2 class="listar__titulo">Dados Atualizados com Sucesso!</h2>
+        <p>Os dados do usuário foram atualizados com sucesso.</p>
+        <a href="../user-home.html" class="listar__link">Voltar para a página inicial</a>
     </section>
 
     <footer class="rodapé">
@@ -61,24 +66,9 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userDetails = document.querySelector('#userDetails');
-            const updatedUser = JSON.parse(localStorage.getItem('updatedUser'));
-
-            if (updatedUser) {
-                userDetails.innerHTML = `
-                    <p><strong>Nome:</strong> ${updatedUser.nome}</p>
-                    <p><strong>Email:</strong> ${updatedUser.email}</p>
-                    <p><strong>CPF:</strong> ${updatedUser.cpf}</p>
-                    <p><strong>Data de Nascimento:</strong> ${updatedUser.dataNascimento}</p>
-                `;
-                localStorage.removeItem('updatedUser'); // Remove os dados após exibição
-            } else {
-                userDetails.innerHTML = '<p>Não foi possível carregar os dados atualizados.</p>';
-            }
-        });
-    </script>
+    <script src="../../js/usuario/editar.js"></script>
+    <script src="../../js/usuario/logout.js"></script>
+    <script src="../../js/saudacao.js"></script>
 </body>
 
 </html>

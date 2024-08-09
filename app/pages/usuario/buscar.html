@@ -33,17 +33,25 @@
             </a>
         </div>
     </header>
-    <section class="banner">
-        <h2 class="banner__titulo">Dados Atualizados</h2>
-    </section>
     
-    <section class="listar">
-        <h2 class="listar__titulo">Dados Atualizados com Sucesso!</h2>
-        <div id="userData" class="user-card">
-            <!-- Os dados do usuário serão inseridos aqui pelo JavaScript -->
-        </div>
-        <a href="../user-home.html" class="listar__link">Voltar para a página inicial</a>
+    <section class="banner">
+        <h2 class="banner__titulo">Editar Conta</h2>
     </section>
+ <section class="formulario">
+    <form id="email-form">
+        <fieldset class="formulario__campo">
+            <label class="campo__etiqueta" for="email">E-mail</label>
+            <input name="email" id="email" class="campo__escrita" type="email" required />
+            <span class="mensagem-erro"></span>
+        </fieldset>
+    
+        <div>
+            <input value="Buscar" class="formulario__botao" id="search" type="submit">
+            <span class="mensagem-erro"></span>
+        </div>
+    </form>
+</section>
+        
 
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
@@ -64,7 +72,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/usuario/editado.js"></script>
+    <script src="../../js/usuario/buscar.js" defer></script>     
     <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Amazon Beauty co Editar Usuário</title>
+    <title>Amazon Beauty co Excluir Usuário</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,22 +35,27 @@
     </header>
     
     <section class="banner">
-        <h2 class="banner__titulo">Editar Conta</h2>
+        <h2 class="banner__titulo">Excluir Conta</h2>
     </section>
-    <form id="searchUserForm">
-        <fieldset class="formulario__campo">
-            <label class="campo__etiqueta" for="email">E-mail</label>
-            <input name="email" id="emailSearch" class="campo__escrita" type="email" required />
-            <span class="mensagem-erro"></span>
-        </fieldset>
     
-        <div>
-            <input value="Buscar" class="formulario__botao" id="search" type="submit">
-            <span class="mensagem-erro"></span>
+    <section class="formulario">
+        <div class="formulario__container">
+            <h2 class="formulario__titulo-texto">Digite o e-mail do usuário que deseja excluir</h2>
         </div>
-    </form>
-</section>
-        
+
+        <form id="deleteUserForm">
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="email">E-mail</label>
+                <input name="email" id="email" class="campo__escrita" type="email" required />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+
+            <div>
+                <input value="Excluir" class="formulario__botao" id="delete" type="submit">
+                <span class="mensagem-erro"></span>
+            </div>
+        </form>
+    </section>
 
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
@@ -71,7 +76,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/usuario/editar.js"></script>
+    <script src="../../js/usuario/excluir.js"></script>
     <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
 </body>

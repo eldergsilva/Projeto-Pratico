@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Amazon Beauty co Editar Usuário</title>
+    <title>Listar Produtos</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles.css">   
-    <link rel="stylesheet" href="../../styles/formulario/styles.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../../styles.css">
+          
 </head>
-
 <body>
     <header class="cabeçalho">
         <div class="container">            
             <img src="../../img/logo.png" alt="Logo da Amazon Beauty co" class="container__imagem">
             <h1 class="container__titulo"><b class="container__titulo--negrito">Amazon</b> Beauty co</h1>
         </div>               
-          
         <div class="saudacao">            
             <p>Olá, <span id="userFirstName"></span></p>
         </div>
@@ -33,18 +30,18 @@
             </a>
         </div>
     </header>
+    
     <section class="banner">
-        <h2 class="banner__titulo">Dados Atualizados</h2>
+        <h2 class="banner__titulo">Lista de Produtos</h2>
     </section>
     
     <section class="listar">
-        <h2 class="listar__titulo">Dados Atualizados com Sucesso!</h2>
-        <div id="userData" class="user-card">
-            <!-- Os dados do usuário serão inseridos aqui pelo JavaScript -->
+        <div id="produtoLista" class="produto-lista">
+             
         </div>
-        <a href="../user-home.html" class="listar__link">Voltar para a página inicial</a>
+        <a href="../user-home.html" class="listar__link">Voltar</a>
     </section>
-
+    
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
         <ul class="lista-rodapé">
@@ -62,11 +59,10 @@
             </li>      
         </ul>        
     </footer>
-
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/usuario/editado.js"></script>
+    <script src="../../js/produtos/listarProdutos.js"></script>
     <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
 </body>
-
 </html>

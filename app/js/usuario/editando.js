@@ -1,63 +1,83 @@
 document.addEventListener('DOMContentLoaded', async function() {
     const userId = localStorage.getItem('userId');
-    
+    const accessToken = localStorage.getItem('accessToken');
+
     if (!userId) {
-        alert('ID do usuário não encontrado.');
-        window.location.href = 'editar.html';
+        alert('Usuário não encontrado. Por favor, faça a busca novamente.');
+        window.location.href = 'buscar.html'; // Redireciona de volta para a página de busca
         return;
     }
-    
+
     try {
-        // Solicitar dados do usuário
-        const response = await fetch(`http://localhost:3000/usuarios/${userId}`);
-        if (!response.ok) throw new Error('Usuário não encontrado');
-        
+        // Busca os dados do usuário
+        const response = await fetch(`http://localhost:3000/usuarios/id/${userId}`, {
+            headers: {
+                'x-access-token': accessToken
+            }
+        });
+
+        if (!response.ok) throw new Error('Erro ao buscar dados do usuário');
+
         const user = await response.json();
-        
-        // Preencher o formulário com os dados do usuário
+
+        // Função para formatar a data no formato yyyy-MM-dd
+        function formatDateForInput(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Preenche os campos do formulário com os dados do usuário
         document.getElementById('nome').value = user.nome;
         document.getElementById('email').value = user.email;
-        document.getElementById('telefone').value = user.telefone;
+        document.getElementById('cpf').value = user.cpf;
+        document.getElementById('aniversario').value = formatDateForInput(user.dataNascimento);
+
     } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
         alert('Erro ao carregar dados do usuário.');
     }
-});
 
-document.getElementById('edit-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    
-    const userId = localStorage.getItem('userId');
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const telefone = document.getElementById('telefone').value;
-    const senha = document.getElementById('senha').value;
-    
-    const data = {
-        nome,
-        email,
-        telefone,
-        ...(senha && { senha }) // Adiciona a senha apenas se fornecida
-    };
-    
-    try {
-        // Enviar solicitação de atualização
-        const response = await fetch(`http://localhost:3000/usuarios/${userId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        if (!response.ok) throw new Error('Erro ao atualizar usuário');
-        
-        const updatedUser = await response.json();
-        
-        // Redirecionar para uma página de sucesso com os dados atualizados
-        localStorage.setItem('updatedUser', JSON.stringify(updatedUser));
-        window.location.href = 'editado.html';
-    } catch (error) {
-        console.error('Erro ao atualizar dados do usuário:', error);
-        alert('Erro ao atualizar dados.');
-    }
+    // Adiciona o listener de evento para o formulário de edição
+    document.getElementById('editandoUsuario').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const cpf = document.getElementById('cpf').value;
+        const aniversario = document.getElementById('aniversario').value;
+
+        // Cria um objeto com os dados que serão enviados
+        const updatedData = {};
+        if (nome) updatedData.nome = nome;
+        if (email) updatedData.email = email;
+        if (senha) updatedData.senha = senha; // Senha será atualizada somente se fornecida
+        if (cpf) updatedData.cpf = cpf;
+        if (aniversario) updatedData.dataNascimento = aniversario;
+
+        try {
+            const response = await fetch(`http://localhost:3000/usuarios/id/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': accessToken
+                },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (!response.ok) throw new Error('Erro ao atualizar dados do usuário');
+
+            // Armazena os dados atualizados no localStorage
+            localStorage.setItem('userData', JSON.stringify(updatedData));
+
+            // Redireciona para a página editado.html
+            window.location.href = 'editado.html';
+        } catch (error) {
+            console.error('Erro ao atualizar dados do usuário:', error);
+            alert('Erro ao atualizar dados do usuário.');
+        }
+    });
 });

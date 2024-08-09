@@ -4,19 +4,19 @@
     "description": "Construído um Site Responsivo com HTML, CSS e JavaScript",
     "main": "index.js",
     "scripts": {
-        "start": "node  index.js"
+        "start": "nodemon  ./app/index.js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/eldergsilva/amazonia-beauty-co.git"
+        "url": "git+https://github.com/eldergsilva/Projeto-Pratico.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/eldergsilva/amazonia-beauty-co/issues"
+        "url": "https://github.com/eldergsilva/Projeto-Pratico/issues"
     },
-    "homepage": "https://github.com/eldergsilva/amazonia-beauty-co#readme",
+    "homepage": "https://eldergsilva.github.io/Projeto-Pratico/",
     "dependencies": {
         "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",

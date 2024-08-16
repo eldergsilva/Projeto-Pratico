@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Listar Produtos</title>
+    <title>Editar Produto</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
-          
+    <link rel="stylesheet" href="../../styles/formulario/styles.css">
 </head>
 <body>
     <header class="cabeçalho">
@@ -30,18 +30,27 @@
             </a>
         </div>
     </header>
-    
-    <section class="banner">
-        <h2 class="banner__titulo">Lista de Produtos</h2>
-    </section>
-    
-    <section class="listar">
-        <div id="produtoLista" class="produto-lista">
-             
-        </div>
-        <a href="../user-home.html" class="listar__link">Voltar para Area do Usuario</a>
-    </section>
-    
+    <main class="container">
+        <section class="formulario">
+            <div class="formulario__container">                
+                <h2 class="formulario__titulo-texto">Produto Atualizado</h2>
+            </div>
+
+            <p>O produto foi atualizado com sucesso!</p>
+            <div id="produtoAtualizadoInfo" class="produto-info">
+                <p><strong>Código:</strong> <span id="produtoCodigo"></span></p>
+                <p><strong>Nome:</strong> <span id="produtoNome"></span></p>
+                <p><strong>Preço:</strong> R$ <span id="produtoPreco"></span></p>
+                <p><strong>Descrição:</strong> <span id="produtoDescricao"></span></p>
+                <p><strong>Quantidade:</strong> <span id="produtoQuantidade"></span></p>
+            </div>
+
+            <div class="formulario__nao-cadastrado">
+                <p>Voltar para Área do Cliente</p>
+                <a href="buscarProduto.html" class="formulario__link">Voltar</a>
+            </div>
+        </section>
+    </main>
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
         <ul class="lista-rodapé">
@@ -59,9 +68,7 @@
             </li>      
         </ul>        
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/produtos/listarProdutos.js"></script>
+    <script src="../../js/produtos/produtoAtualizado.js"></script>
     <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
 </body>

@@ -1,62 +1,140 @@
 const ProdutoModel = require('../models/produtoModel');
+const ContadorModel = require('../models/contadorModel');
 
 class ProdutoService {
+    async gerarCodigoProduto() {
+        try {
+            const contador = await ContadorModel.findOneAndUpdate(
+                { nome: 'produto' },
+                { $inc: { valor: 1 } },
+                { new: true, upsert: true }
+            );
+
+            return `PRD${contador.valor.toString().padStart(4, '0')}`;
+        } catch (error) {
+            console.error('Erro ao gerar código do produto:', error);
+            throw new Error('Erro ao gerar código do produto: ' + error.message);
+        }
+    }
+
     async cadastrar(dto) {
         try {
+            const { nome, preco, descricao, quantidade, imagem } = dto;
+
+            // Validação básica
+            if (!nome || !preco || quantidade === undefined) {
+                throw new Error('Nome, preço e quantidade são obrigatórios.');
+            }
+
+            // Verificar se já existe um produto com o mesmo nome
+            const produtoExistente = await ProdutoModel.findOne({ nome }).exec();
+            if (produtoExistente) {
+                throw new Error('Já existe um produto com esse nome.');
+            }
+
+            // Gerar código do produto
+            const codigoProduto = await this.gerarCodigoProduto();
+
+            // Criar novo produto
             const novoProduto = new ProdutoModel({
-                nome: dto.nome,
-                preco: dto.preco,
-                descricao: dto.descricao,
-                quantidade: dto.quantidade,
-                imagem: dto.imagem
+                codigo: codigoProduto,
+                nome,
+                preco,
+                descricao,
+                quantidade,
+                imagem
             });
 
+            // Salvar produto
             await novoProduto.save();
             return novoProduto;
         } catch (error) {
-            throw new Error('Erro ao cadastrar produto');
+            console.error('Erro ao cadastrar produto:', error);
+            throw new Error('Erro ao cadastrar produto: ' + error.message);
         }
     }
 
     async buscarTodosProdutos() {
-        return await ProdutoModel.find();
+        try {
+            return await ProdutoModel.find();
+        } catch (error) {
+            console.error('Erro ao buscar todos os produtos:', error);
+            throw new Error('Erro ao buscar todos os produtos: ' + error.message);
+        }
+    }
+
+    async buscarProdutoPorNome(nome) {
+        try {
+            return await ProdutoModel.findOne({ nome: new RegExp(`^${nome}$`, 'i') }).exec();
+        } catch (error) {
+            console.error('Erro ao buscar produto por nome:', error);
+            throw new Error('Erro ao buscar produto por nome: ' + error.message);
+        }
     }
 
     async buscarProdutoPorId(id) {
-        const produto = await ProdutoModel.findById(id);
-
-        if (!produto) {
-            throw new Error('Produto não encontrado');
+        try {
+            const produto = await ProdutoModel.findById(id);
+            if (!produto) {
+                throw new Error('Produto não encontrado');
+            }
+            return produto;
+        } catch (error) {
+            console.error('Erro ao buscar produto por ID:', error);
+            throw new Error('Erro ao buscar produto por ID: ' + error.message);
         }
-
-        return produto;
     }
 
-    async editarProduto(id, dto) {
-        const produto = await this.buscarProdutoPorId(id);
-
+    async editarProduto(codigo, dto) {
         try {
-            produto.nome = dto.nome;
-            produto.preco = dto.preco;
-            produto.descricao = dto.descricao;
-            produto.quantidade = dto.quantidade;
-            produto.imagem = dto.imagem;
+            const produto = await ProdutoModel.findOne({ codigo });
+            if (!produto) {
+                throw new Error('Produto não encontrado');
+            }
 
+            // Atualizar campos do produto
+            if (dto.nome) produto.nome = dto.nome;
+            if (dto.preco) produto.preco = dto.preco;
+            if (dto.descricao) produto.descricao = dto.descricao;
+            if (dto.quantidade) produto.quantidade = dto.quantidade;
+            if (dto.imagem) produto.imagem = dto.imagem;
+
+            // Verificar se o novo nome já existe
+            if (dto.nome) {
+                const produtoExistente = await ProdutoModel.findOne({ nome: dto.nome }).exec();
+                if (produtoExistente && produtoExistente.codigo !== codigo) {
+                    throw new Error('Já existe um produto com o mesmo nome.');
+                }
+            }
+
+            // Salvar produto atualizado
             await produto.save();
             return produto;
         } catch (error) {
-            throw new Error('Erro ao editar produto');
+            console.error('Erro ao editar produto:', error);
+            throw new Error('Erro ao editar produto: ' + error.message);
         }
     }
 
-    async deletarProduto(id) {
-        const produto = await this.buscarProdutoPorId(id);
-
+    async deletarProdutoPorCodigo(codigo) {
         try {
-            await produto.deleteOne();
-            return { message: 'Produto deletado com sucesso' };
+            const resultado = await ProdutoModel.deleteOne({ codigo });
+            if (resultado.deletedCount === 0) {
+                throw new Error('Produto não encontrado');
+            }
+            return resultado;
         } catch (error) {
-            throw new Error('Erro ao deletar produto');
+            console.error('Erro ao deletar produto:', error);
+            throw new Error('Erro ao deletar produto: ' + error.message);
+        }
+    }
+
+    async buscarProdutoPorCodigo(codigo) {
+        try {
+            return await ProdutoModel.findOne({ codigo });
+        } catch (error) {
+            console.error('Erro ao buscar produto por código:', error);
+            throw new Error('Erro ao buscar produto por código: ' + error.message);
         }
     }
 }

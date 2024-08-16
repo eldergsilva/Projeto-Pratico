@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
-    <title>Listar Produtos</title>
+    <title>Buscar Produto</title>
     <link rel="stylesheet" href="../../reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
-          
+    <link rel="stylesheet" href="../../styles/formulario/styles.css">
 </head>
 <body>
     <header class="cabeçalho">
@@ -30,17 +30,30 @@
             </a>
         </div>
     </header>
+    <main class="container">
+        <section class="formulario">
+            <div class="formulario__container">                
+                <h2 class="formulario__titulo-texto">Buscar Produto</h2>
+            </div>
+
+            <form id="buscarProdutoForm" class="principal__formulario" data-formulario>
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="codigo">Código do Produto</label>
+                    <input name="codigo" id="codigo" class="campo__escrita" type="text" minlength="3" required>
+                </fieldset>
+
+                <div>
+                    <button type="submit" class="formulario__botao">Buscar</button>
+                </div>
+            </form>
+            <p id="mensagemErro" style="display:none; color: red;"></p>
+            <div class="formulario__nao-cadastrado">
+                <p>Voltar para Área do Cliente</p>
+                <a href="../user-home.html" class="formulario__link">Área do Cliente</a>
+            </div>
+        </section>
+    </main> 
     
-    <section class="banner">
-        <h2 class="banner__titulo">Lista de Produtos</h2>
-    </section>
-    
-    <section class="listar">
-        <div id="produtoLista" class="produto-lista">
-             
-        </div>
-        <a href="../user-home.html" class="listar__link">Voltar para Area do Usuario</a>
-    </section>
     
     <footer class="rodapé">
         <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
@@ -59,9 +72,7 @@
             </li>      
         </ul>        
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../../js/produtos/listarProdutos.js"></script>
+    <script src="../../js/produtos/buscarProduto.js"></script>
     <script src="../../js/usuario/logout.js"></script>
     <script src="../../js/saudacao.js"></script>
 </body>

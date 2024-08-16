@@ -1,52 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Função para formatar a data no formato dd/mm/yyyy
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
+document.addEventListener('DOMContentLoaded', async function () {
+    const produtoLista = document.querySelector('#produtoLista');
+    
+    if (!produtoLista) {
+        console.error('Elemento #produtoLista não encontrado.');
+        return;
     }
 
-    // Função para criar cartões de produto
-    function createProductCards(products) {
-        const productList = document.getElementById('productList');
-        productList.innerHTML = ''; // Limpa o conteúdo existente
+    // Obtém o token de autenticação do localStorage
+    const accessToken = localStorage.getItem('accessToken');
 
-        products.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <h3>Nome: ${product.nome}</h3>
-                <p>Preço: R$ ${product.preco.toFixed(2)}</p>
-                <p>Descrição: ${product.descricao}</p>
-                <p>Quantidade: ${product.quantidade}</p>
-                <p>Data Adição: ${formatDate(product.dataAdicao)}</p>
-            `;
-            productList.appendChild(card);
+    if (!accessToken) {
+        console.error('Token de autenticação não encontrado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/produtos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': accessToken // Usa o cabeçalho correto para autenticação
+            }
         });
-    }
 
-    // Função para buscar dados dos produtos
-    async function fetchProducts() {
-        const accessToken = localStorage.getItem('accessToken'); // Obtém o token do localStorage
-
-        try {
-            const response = await fetch('http://localhost:3000/produtos', {
-                method: 'GET',
-                headers: {
-                    'x-access-token': accessToken  // Usando 'x-access-token' para enviar o token
-                }
-            });
-
-            if (!response.ok) throw new Error('Erro na requisição');
-            const products = await response.json();
-            createProductCards(products);
-        } catch (error) {
-            console.error('Erro ao buscar dados dos produtos:', error);
+        if (!response.ok) {
+            const errorData = await response.json(); // Captura dados de erro
+            throw new Error(errorData.message || 'Erro ao buscar produtos.');
         }
-    }
 
-    // Chama a função para buscar e exibir os produtos
-    fetchProducts();
+        const produtos = await response.json();
+
+        // Cria o HTML para a lista de produtos
+        produtoLista.innerHTML = produtos.map(produto => `
+            <div class="produto">
+                <p>Código: ${produto.codigo}</p>
+                <h3>${produto.nome}</h3>
+                <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
+                <p>Descrição: ${produto.descricao || 'Não disponível'}</p>
+                <p>Quantidade: ${produto.quantidade}</p>
+            </div>
+        `).join('');
+
+    } catch (error) {
+        console.error('Erro:', error);
+    }
 });

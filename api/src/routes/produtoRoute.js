@@ -3,13 +3,14 @@ const ProdutoController = require('../controllers/produtoController');
 const autenticado = require('../middleware/autenticado');
 
 const router = Router();
-router.use(autenticado); // Garante que todas as rotas abaixo exijam autenticação
+router.use(autenticado);  
 
 router
     .post('/produtos', ProdutoController.cadastrar)
-    .get('/produtos', ProdutoController.buscarTodosProdutos)
-    .get('/produtos/id/:id', ProdutoController.buscarProdutoPorId)
-    .put('/produtos/id/:id', ProdutoController.editarProduto)
-    .delete('/produtos/id/:id', ProdutoController.deletarProduto);
+    .get('/produtos', ProdutoController.buscarTodosProdutos)        
+    .get('/produtos/codigo/:codigo', ProdutoController.buscarProdutoPorCodigo)
+    .get('/produtos/nome/:nome', ProdutoController.buscarProdutoPorNome) 
+    .put('/produtos/codigo/:codigo', ProdutoController.editarProduto)
+    .delete('/produtos/codigo/:codigo', ProdutoController.deletarProdutoPorCodigo);;
 
 module.exports = router;

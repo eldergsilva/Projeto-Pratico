@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const dadosFormulario = new FormData(formulario);
         const dados = {
-            nome: dadosFormulario.get('nome'),
-            email: dadosFormulario.get('email'),
-            senha: dadosFormulario.get('senha'),
-            cpf: dadosFormulario.get('cpf'),
-            dataNascimento: dadosFormulario.get('aniversario')
+            nome: dadosFormulario.get('nome').trim(),
+            email: dadosFormulario.get('email').trim(),
+            senha: dadosFormulario.get('senha').trim(),
+            cpf: dadosFormulario.get('cpf').trim(),
+            dataNascimento: dadosFormulario.get('aniversario').trim()
         };
 
         try {

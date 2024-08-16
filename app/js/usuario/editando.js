@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('editandoUsuario').addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const senha = document.getElementById('senha').value;
-        const cpf = document.getElementById('cpf').value;
-        const aniversario = document.getElementById('aniversario').value;
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const senha = document.getElementById('senha').value.trim();
+        const cpf = document.getElementById('cpf').value.trim();
+        const aniversario = document.getElementById('aniversario').value.trim();
 
         // Cria um objeto com os dados que serão enviados
         const updatedData = {};

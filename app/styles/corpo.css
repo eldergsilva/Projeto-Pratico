@@ -37,6 +37,12 @@
     background-color: var(--laranja);
 }
 
+.corpo h2 {
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+    color: var(--verde); /* Aplica a cor verde ao texto */
+    margin-bottom: 1em; /* Define o espaçamento inferior igual ao superior */
+    text-align: center; /* Centraliza o texto */
+}
 /* Responsividade */
 @media screen and (max-width: 900px) {
     .corpo {
@@ -51,6 +57,9 @@
         padding: 0.8em 1.5em;
         font-size: 16px;
     }
+    .corpo h2 {
+        font-size: 1.8em; /* Ajusta o tamanho da fonte para telas menores */
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -61,5 +70,8 @@
     .corpo a {
         padding: 1em;
         font-size: 14px;
+    }
+    .corpo h2 {
+        font-size: 1.6em; /* Ajusta o tamanho da fonte para telas muito pequenas */
     }
 }

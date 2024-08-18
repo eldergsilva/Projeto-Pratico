@@ -3,6 +3,10 @@ const { UsuarioModel, CarrinhoModel } = require('../models');
 
 class UsuarioService {
     async cadastrar(dto) {
+        if (!dto.nome || !dto.email || !dto.senha || !dto.cpf || !dto.dataNascimento) {
+            throw new Error('Dados obrigatórios não fornecidos.');
+        }
+
         const usuarioExistente = await UsuarioModel.findOne({ email: dto.email });
         if (usuarioExistente) {
             throw new Error('Usuário já cadastrado com este e-mail.');
@@ -22,12 +26,11 @@ class UsuarioService {
                 senha: senhaHash,
                 cpf: dto.cpf,
                 dataNascimento: dto.dataNascimento,
-                role: dto.role || 'user' // Define o papel padrão como 'user'
+                role: dto.role || 'user'
             });
 
             await novoUsuario.save();
 
-            // Se for um usuário, criar um carrinho
             if (novoUsuario.role === 'user') {
                 await CarrinhoModel.create({ usuario_id: novoUsuario._id, itens: [] });
             }
@@ -37,54 +40,80 @@ class UsuarioService {
             throw new Error('Erro ao cadastrar usuário: ' + error.message);
         }
     }
+
     async buscarTodosUsuarios() {
-        const usuarios = await UsuarioModel.find();
-        return usuarios;
+        try {
+            const usuarios = await UsuarioModel.find();
+            return usuarios;
+        } catch (error) {
+            throw new Error('Erro ao buscar usuários: ' + error.message);
+        }
     }
 
     async buscarUsuarioPorId(id) {
-        const usuario = await UsuarioModel.findById(id);
-
-        if (!usuario) {
-            throw new Error('Usuário informado não cadastrado!');
+        if (!id) {
+            throw new Error('ID não fornecido.');
         }
 
-        return usuario;
+        try {
+            const usuario = await UsuarioModel.findById(id);
+            if (!usuario) {
+                throw new Error('Usuário não encontrado.');
+            }
+            return usuario;
+        } catch (error) {
+            throw new Error('Erro ao buscar usuário: ' + error.message);
+        }
     }
 
     async buscarUsuarioPorEmail(email) {
-        const usuario = await UsuarioModel.findOne({ email });
-
-        if (!usuario) {
-            throw new Error('Usuário não encontrado com este e-mail.');
+        if (!email) {
+            throw new Error('Email não fornecido.');
         }
 
-        return usuario;
+        try {
+            const usuario = await UsuarioModel.findOne({ email });
+            if (!usuario) {
+                throw new Error('Usuário não encontrado com este e-mail.');
+            }
+            return usuario;
+        } catch (error) {
+            throw new Error('Erro ao buscar usuário: ' + error.message);
+        }
     }
 
     async editarUsuario(dto) {
-        const usuario = await this.buscarUsuarioPorId(dto.id);
+        const { id } = dto;
+        if (!id) {
+            throw new Error('ID não fornecido.');
+        }
 
         try {
-            usuario.nome = dto.nome;
-            usuario.email = dto.email;
-            usuario.cpf = dto.cpf;
-            usuario.dataNascimento = dto.dataNascimento;
+            const usuario = await this.buscarUsuarioPorId(id);
+            usuario.nome = dto.nome || usuario.nome;
+            usuario.email = dto.email || usuario.email;
+            usuario.cpf = dto.cpf || usuario.cpf;
+            usuario.dataNascimento = dto.dataNascimento || usuario.dataNascimento;
+            if (dto.senha) {
+                usuario.senha = await hash(dto.senha, 8);
+            }
 
             await usuario.save();
             return usuario;
         } catch (error) {
-            throw new Error('Erro ao editar usuário!');
+            throw new Error('Erro ao editar usuário: ' + error.message);
         }
     }
 
     async deletarUsuario(id) {
-        await this.buscarUsuarioPorId(id);
+        if (!id) {
+            throw new Error('ID não fornecido.');
+        }
 
         try {
             await UsuarioModel.findByIdAndDelete(id);
         } catch (error) {
-            throw new Error('Erro ao tentar deletar o usuário!');
+            throw new Error('Erro ao deletar usuário: ' + error.message);
         }
     }
 }

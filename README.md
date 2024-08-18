@@ -1,13 +1,13 @@
-# Amazon Beauty co
+# ![Logo](app/img/logo.png) **Amazon Beauty co**
 
-**Amazon Beauty co** é uma API para uma loja de cosméticos naturais, desenvolvida com Node.js e MongoDB. O sistema inclui funcionalidades para cadastro e login de usuários, CRUD de produtos e carrinho (em desenvolvimento). 
+**Amazon Beauty co** é uma API para uma loja de cosméticos naturais, parte de um projeto proposto pela **Alura** e pelo **GRUPO BOTICÁRIO**, que integra o frontend a uma API.
 
-![Imagem do Projeto](https://link-para-sua-imagem.com/imagem.png)
+![Imagem do Projeto](app/img/projetoimg.PNG)
 
-## Badges
-
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Coverage](https://img.shields.io/badge/coverage-85%25-brightgreen)
+### Tecnologias Utilizadas
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express
+- **Banco de Dados**: MongoDB
 
 ## Instalação
 
@@ -33,6 +33,9 @@
     ```
 
 4. **Configure o banco de dados MongoDB**:
+Crie uma conta gratuita no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).  
+Crie um Cluster e configure um usuário com acesso ao banco de dados.  
+Obtenha a URI de conexão e adicione ao arquivo `.env` do projeto:  
 
     - Crie um arquivo `.env` na pasta `api` com as seguintes variáveis de ambiente:
 
@@ -58,8 +61,11 @@
 ## Funcionalidades
 
 - **Cadastro de Usuário**: Permite aos usuários se registrarem.
+  ![Cadastro de Usuário](app/img/cadastrarUser.PNG)
 - **Login de Usuário**: Permite aos usuários fazer login.
+  ![Login de Usuário](app/img/logarUser.PNG)
 - **CRUD de Usuário**: Cadastrar, buscar, editar e deletar usuários.
+  ![CRUD de Usuário](app/img/crudUser.PNG)
 - **CRUD de Produto**: Adicionar, buscar, editar e deletar produtos.
 - **CRUD de Carrinho** (em desenvolvimento).
 
@@ -69,18 +75,19 @@
 
     ```bash
     cd api
-    npm test
+    npm run test:usuario:service
+    npm run test:produto:service
     ```
 
 ## Capturas de Tela
 
 ### Tela Inicial
 
-![Captura de Tela - Tela Inicial](https://link-para-sua-imagem.com/tela-inicial.png)
+![Captura de Tela - Tela Inicial](app/img/home.png)
 
 ### Tela de Cadastro
 
-![Captura de Tela - Tela de Cadastro](https://link-para-sua-imagem.com/tela-cadastro.png)
+![Captura de Tela - Tela de Cadastro](app/img/cadastrarUser.PNG)
 
 ## Contribuição
 

@@ -1,20 +1,22 @@
 const { verify } = require('jsonwebtoken');
 const jsonSecret = require('../config/jsonSecret');
 
-const autenticado = (req, res, next) => {
+function autenticado(req, res, next) {
     const token = req.headers['x-access-token'];
 
     if (!token) {
-        return res.status(403).send({ message: 'Access token não informado' });
+        return res.status(401).send({ message: 'Token não fornecido' });
     }
 
-    try {
-        const decoded = verify(token, jsonSecret.secret);
-        req.userId = decoded.id;   
-        next();
-    } catch (error) {
-        return res.status(401).send({ message: 'Token inválido' });
-    }
-};
+    verify(token, jsonSecret.secret, (err, decoded) => {
+        if (err) {
+            console.error('Erro ao verificar o token:', err);
+            return res.status(403).send({ message: 'Token inválido' });
+        }
+
+        req.user = decoded; // Adiciona o payload decodificado à requisição
+        next(); // Passa para o próximo middleware ou rota
+    });
+}
 
 module.exports = autenticado;

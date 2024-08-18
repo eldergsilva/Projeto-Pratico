@@ -4,7 +4,8 @@ const autenticado = require('../middleware/autenticado');
 
 const router = Router();
 router.post('/usuarios', UsuarioController.cadastrar);
-router.use(autenticado);
+
+router.use(autenticado); 
 
 router.get('/usuarios', UsuarioController.buscarTodosUsuarios);
 router.get('/usuarios/email/:email', UsuarioController.buscarUsuarioPorEmail);

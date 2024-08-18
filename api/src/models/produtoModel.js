@@ -2,10 +2,24 @@ const mongoose = require('mongoose');
 const Contador = require('./contadorModel');
 
 const produtoSchema = new mongoose.Schema({
-    codigo: { type: String, required: true, unique: true },
-    nome: { type: String, required: true, unique: true,trim: true },
-    preco: { type: Number, required: true },
-    descricao: { type: String },
+    codigo: { 
+        type: String, 
+        required: true, 
+        unique: true 
+    },
+    nome: { 
+        type: String, 
+        required: true, 
+        unique: true,
+        trim: true 
+    },
+    preco: { 
+        type: Number, 
+        required: true 
+    },
+    descricao: { 
+        type: String 
+    },
     quantidade: { 
         type: Number, 
         required: true,
@@ -14,7 +28,9 @@ const produtoSchema = new mongoose.Schema({
             message: '{VALUE} não é um número inteiro.'
         }
     },
-    imagem: { type: String }
+    imagem: { 
+        type: String 
+    }
 });
 
 produtoSchema.pre('save', async function(next) {

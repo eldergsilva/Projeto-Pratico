@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <title>Amazon Beauty co Editar Usuário</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">   
+    <link rel="stylesheet" href="../../styles/formulario/styles.css">  
+</head>
+
+<body>
+    <header class="cabeçalho">
+        <div class="container">            
+            <img src="../../img/logo.png" alt="Logo da Amazon Beauty co" class="container__imagem">
+            <h1 class="container__titulo"><b class="container__titulo--negrito">Amazon</b> Beauty co</h1>
+        </div>               
+          
+        <div class="saudacao">            
+            <p>Olá, <span id="userFirstName"></span></p>
+        </div>
+        <div class="container">          
+            <a id="adm" href="../user-home.html" class="container__link">
+                <img src="../../img/conta-de-usuario.png" alt="sair" class="container__imagem">                
+            </a>
+            <a id="logout" href="#" class="container__link">
+                <img src="../../img/logout.png" alt="sair" class="container__imagem">                
+            </a>
+        </div>
+    </header>
+    
+    <section class="banner">
+        <h2 class="banner__titulo">Edite seus dados</h2>
+    </section>
+    
+    <section class="formulario">
+        <div class="formulario__container">
+            <h2 class="formulario__titulo-texto">Atualize seus dados</h2>
+        </div>
+        <form id="editandoUsuario">
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="nome">Nome</label>
+                <input name="nome" id="nome" class="campo__escrita" type="text" minlength="3" />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+        
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="email">E-mail</label>
+                <input name="email" id="email" class="campo__escrita" type="email" minlength="4" autocomplete="username" />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="senha">Nova Senha (opcional)</label>
+                <input name="senha" id="senha" class="campo__escrita campo__escrita--menor" type="password" minlength="6" maxlength="14" autocomplete="new-password" />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="cpf">CPF (apenas números)</label>
+                <input name="cpf" id="cpf" class="campo__escrita campo__escrita--menor" type="text"
+                    minlength="11" maxlength="14" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+            
+            <fieldset class="formulario__campo">
+                <label class="campo__etiqueta" for="aniversario">Data de nascimento</label>
+                <input name="aniversario" id="aniversario" class="campo__escrita campo__escrita--menor" type="date" />
+                <span class="mensagem-erro"></span>
+            </fieldset>
+        
+            <div>
+                <input value="Atualizar" class="formulario__botao" id="atualizar" type="submit">
+                <span class="mensagem-erro"></span>
+            </div>
+        </form>           
+        
+
+    </section>
+
+    <footer class="rodapé">
+        <h2 class="rodapé__titulo">Created by Elder Gomes</h2>
+        <ul class="lista-rodapé">
+            <li class="lista-rodapé__titulo">Meio Ambiente</li>
+            <li class="lista-rodapé__item">
+                <img src="../../img/ecologia.svg" alt="Meio Ambiente">   
+                <a href="#" class="lista-rodapé__link"></a>
+            </li>         
+        </ul>
+        <ul class="lista-rodapé">
+            <li class="lista-rodapé__titulo">Institucional</li>
+            <li class="lista-rodapé__item">
+                <img src="../../img/instituicao.svg" alt="Institucional">   
+                <a href="#" class="lista-rodapé__link"></a>
+            </li>      
+        </ul>        
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../../js/usuario/editando.js"></script>
+    <script src="../../js/usuario/logout.js"></script>
+    <script src="../../js/saudacao.js"></script>
+</body>
+
+</html>

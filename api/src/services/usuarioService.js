@@ -1,13 +1,11 @@
 const { hash } = require('bcryptjs');
-const uuid = require('uuid');
-const { UsuarioModel } = require('../models');
+const { UsuarioModel, CarrinhoModel } = require('../models');
 
 class UsuarioService {
     async cadastrar(dto) {
-        const usuario = await UsuarioModel.findOne({ email: dto.email });
-
-        if (usuario) {
-            throw new Error('Usuario ja cadastrado Com esse Email');
+        const usuarioExistente = await UsuarioModel.findOne({ email: dto.email });
+        if (usuarioExistente) {
+            throw new Error('Usuário já cadastrado com este e-mail.');
         }
 
         const usuarioPorCpf = await UsuarioModel.findOne({ cpf: dto.cpf });
@@ -19,21 +17,26 @@ class UsuarioService {
             const senhaHash = await hash(dto.senha, 8);
 
             const novoUsuario = new UsuarioModel({
-                id: uuid.v4(),
                 nome: dto.nome,
                 email: dto.email,
                 senha: senhaHash,
                 cpf: dto.cpf,
-                dataNascimento: dto.dataNascimento
+                dataNascimento: dto.dataNascimento,
+                role: dto.role || 'user' // Define o papel padrão como 'user'
             });
 
             await novoUsuario.save();
+
+            // Se for um usuário, criar um carrinho
+            if (novoUsuario.role === 'user') {
+                await CarrinhoModel.create({ usuario_id: novoUsuario._id, itens: [] });
+            }
+
             return novoUsuario;
         } catch (error) {
-            throw new Error('Erro ao cadastrar usuario');
+            throw new Error('Erro ao cadastrar usuário: ' + error.message);
         }
     }
-
     async buscarTodosUsuarios() {
         const usuarios = await UsuarioModel.find();
         return usuarios;
@@ -43,12 +46,12 @@ class UsuarioService {
         const usuario = await UsuarioModel.findById(id);
 
         if (!usuario) {
-            throw new Error('Usuario informado não cadastrado!');
+            throw new Error('Usuário informado não cadastrado!');
         }
 
         return usuario;
     }
-    
+
     async buscarUsuarioPorEmail(email) {
         const usuario = await UsuarioModel.findOne({ email });
 
@@ -58,7 +61,7 @@ class UsuarioService {
 
         return usuario;
     }
-    
+
     async editarUsuario(dto) {
         const usuario = await this.buscarUsuarioPorId(dto.id);
 
@@ -71,7 +74,7 @@ class UsuarioService {
             await usuario.save();
             return usuario;
         } catch (error) {
-            throw new Error('Erro ao editar usuario!');
+            throw new Error('Erro ao editar usuário!');
         }
     }
 
@@ -81,7 +84,7 @@ class UsuarioService {
         try {
             await UsuarioModel.findByIdAndDelete(id);
         } catch (error) {
-            throw new Error('Erro ao tentar deletar o usuario!');
+            throw new Error('Erro ao tentar deletar o usuário!');
         }
     }
 }

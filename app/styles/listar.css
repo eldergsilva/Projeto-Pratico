@@ -5,6 +5,12 @@
     max-width: 1200px;
     text-align: center;
 }
+.listar h2 {
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+    color: var(--verde); /* Aplica a cor verde ao texto */
+    margin-bottom: 1em; /* Define o espaçamento inferior igual ao superior */
+    text-align: center; /* Centraliza o texto */
+}
 
 /* Estilo do contêiner dos cartões de usuário */
 .user-list {
@@ -60,10 +66,17 @@
     .user-card {
         width: 100%;
     }
+    
+    .listar h2 {
+        font-size: 1.8em; /* Ajusta o tamanho da fonte para telas menores */
+    }
 }
 
 @media screen and (max-width: 600px) {
     .user-card {
         width: 100%;
+    }
+    .listar h2 {
+        font-size: 1.6em /* Ajusta o tamanho da fonte para telas menores */
     }
 }

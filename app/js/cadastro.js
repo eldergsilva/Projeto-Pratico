@@ -1,6 +1,5 @@
 import { validarFormulario } from './script.js';
 
- 
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.querySelector('form[data-formulario]');
     const botaoEnviar = document.querySelector('#enviar');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     formulario.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-         
         if (!validarFormulario()) {
             document.querySelector('.mensagem-erro').textContent = 'Por favor, corrija os erros no formulário.';
             return;
@@ -20,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             email: dadosFormulario.get('email'),
             senha: dadosFormulario.get('senha'),
             cpf: dadosFormulario.get('cpf'),
-            dataNascimento: dadosFormulario.get('aniversario')
+            dataNascimento: dadosFormulario.get('aniversario'),
+            role: dadosFormulario.get('role')   
         };
 
         try {

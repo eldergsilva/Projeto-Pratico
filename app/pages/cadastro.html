@@ -43,7 +43,7 @@
                     <input name="nome" id="nome" class="campo__escrita" type="text" minlength="3" required />
                     <span class="mensagem-erro"></span>
                 </fieldset>
-
+            
                 <fieldset class="formulario__campo">
                     <label class="campo__etiqueta" for="email">E-mail</label>
                     <input name="email" id="email" class="campo__escrita" type="email" minlength="4" required autocomplete="username">
@@ -69,6 +69,16 @@
                         required />
                     <span class="mensagem-erro"></span>
                 </fieldset>
+            
+                <fieldset class="formulario__campo">
+                    <label class="campo__etiqueta" for="role">Role</label>
+                    <select name="role" id="role" class="campo__escrita" required>
+                        <option value="" disabled selected>Selecione o papel</option>
+                        <option value="user">Usuário</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <span class="mensagem-erro"></span>
+                </fieldset>
                 
                 <fieldset class="formulario__termos">
                     <input name="termos" class="termos__input" type="checkbox" required>
@@ -76,12 +86,13 @@
                         descrito na Política de Privacidade do banco.</p>
                     <span class="mensagem-erro"></span>
                 </fieldset>
-
+            
                 <div>
                     <input value="Avançar" class="formulario__botao" id="enviar" data-enviar type="submit">
                     <span class="mensagem-erro"></span>
                 </div>
             </form>
+            
             <div class="formulario__nao-cadastrado">
                 <p>Não deseja cadastrar agora ?</p>
                 <a href="../index.html" class="formulario__link">Voltar para Home</a>

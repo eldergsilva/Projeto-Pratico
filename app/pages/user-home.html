@@ -84,8 +84,7 @@
     <section class="corpo">
         <h2>Editar Seus dados </h2>
         <ul>         
-          <li><a href="usuario/buscar.html">Editar dados do Cliente </a></li>
-          
+          <li><a href="usuario/editandoUsuario.html">Editar dados do Cliente </a></li>          
         </ul>
 
         
@@ -103,6 +102,38 @@
 
         
       </section>
+      <section class="carrossel">
+        <h2 class="carrossel__titulo">Produtos Naturais</h2>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+
+                <div class="swiper-slide"><a href="#"><img src="../img/creme.svg" alt="creme"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/garrafa.svg" alt="Garrafa"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/garrafa-de-spray.svg" alt="garrafa-de-spray"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/spray.svg" alt="spray"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/tubo.svg" alt="tubo"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/serum.svg" alt="serum"></a></div>
+                <div class="swiper-slide"><a href="#"><img src="../img/creme.svg" alt="creme"></a></div>
+
+                
+                <!-- Adicione mais slides conforme necessário -->
+            </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="card">
+            <!-- Seu conteúdo do card aqui -->
+        </div>
+    </section>
     <section class="contato">
         <div class="contato__descrição">
             <h2 class="contato__titulo">Fique de olho nas novidades!</h2>
@@ -130,6 +161,22 @@
             </li>      
         </ul>        
     </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+    <script>
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 10,
+            slidesPerView: 3,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  

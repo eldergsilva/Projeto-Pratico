@@ -1,0 +1,2 @@
+> projetofinalalura@1.0.0 test:auth:service
+> jest --testPathPattern=src/test/services/authService.test.js --detectOpenHandles

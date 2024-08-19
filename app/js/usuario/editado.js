@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    const userId = localStorage.getItem('userId'); // Obtém o ID do usuário do localStorage
-    const accessToken = localStorage.getItem('accessToken'); // Obtém o token de acesso do localStorage
+    const userId = localStorage.getItem('userId'); 
+    const accessToken = localStorage.getItem('accessToken');  
 
     if (!userId) {
         alert('Usuário não encontrado. Por favor, faça a busca novamente.');
-        window.location.href = 'buscar.html'; // Redireciona de volta para a página de busca
+        window.location.href = 'buscar.html'; 
         return;
     }
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const user = await response.json();
 
-        // Função para formatar a data no formato dd/mm/yyyy
+        
         function formatDate(dateString) {
             const date = new Date(dateString);
             const day = String(date.getDate()).padStart(2, '0');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             return `${day}/${month}/${year}`;
         }
 
-        // Preenche a seção com os dados do usuário
+        
         document.querySelector('.listar').innerHTML = `
             <h2 class="listar__titulo">Dados Atualizados com Sucesso!</h2>
             <div class="user-card">

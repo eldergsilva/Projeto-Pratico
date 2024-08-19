@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             userId = usuario._id;
 
-            // Exibe as informações do usuário para confirmação
+            
             userNameEmail.textContent = `Nome: ${usuario.nome}, Email: ${usuario.email}`;
             userInfoDiv.style.display = 'block';
         } catch (erro) {

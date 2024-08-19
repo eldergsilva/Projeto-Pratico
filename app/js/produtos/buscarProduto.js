@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const codigo = codigoInput.value.trim();
 
         mensagemErro.textContent = '';
-        mensagemErro.style.display = 'none'; // Esconder mensagem de erro
+        mensagemErro.style.display = 'none';  
 
         if (!codigo) {
             mensagemErro.textContent = 'Código do produto não pode ser vazio.';
-            mensagemErro.style.display = 'block'; // Mostrar mensagem de erro
+            mensagemErro.style.display = 'block';  
             return;
         }
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = atualizarProdutoURL;
         } else {
             mensagemErro.textContent = 'Produto não encontrado com esse código.';
-            mensagemErro.style.display = 'block'; // Mostrar mensagem de erro
+            mensagemErro.style.display = 'block';  
         }
     });
 });

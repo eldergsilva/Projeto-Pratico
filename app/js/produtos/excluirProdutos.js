@@ -12,58 +12,58 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Função para buscar o produto pelo código
+    
     const fetchProduct = async (code) => {
         try {
             const response = await fetch(`http://localhost:3000/produtos/codigo/${code}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('accessToken') // Usar o token de autenticação
+                    'x-access-token': localStorage.getItem('accessToken') 
                 }
             });
 
             if (!response.ok) {
-                const errorData = await response.json(); // Captura dados de erro
+                const errorData = await response.json(); 
                 throw new Error(errorData.message || 'Erro ao buscar produto.');
             }
 
             return await response.json();
         } catch (error) {
             console.error('Erro:', error);
-            return null; // Retorna null se ocorrer um erro
+            return null; 
         }
     };
 
-    // Função para excluir o produto
+    
     const deleteProduct = async (code) => {
         try {
             const response = await fetch(`http://localhost:3000/produtos/codigo/${code}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('accessToken') // Usar o token de autenticação
+                    'x-access-token': localStorage.getItem('accessToken') 
                 }
             });
 
             if (!response.ok) {
-                const errorData = await response.json(); // Captura dados de erro
+                const errorData = await response.json(); 
                 throw new Error(errorData.message || 'Erro ao excluir produto.');
             }
 
             alert('Produto excluído com sucesso.');
-            productInfo.style.display = 'none'; // Ocultar a seção de confirmação após exclusão
+            productInfo.style.display = 'none'; 
         } catch (error) {
             console.error('Erro:', error);
             alert('Erro ao excluir produto.');
         }
     };
 
-    // Buscar o produto ao clicar no botão "Buscar"
+    
     searchButton.addEventListener('click', async () => {
         const productCode = productCodeInput.value.trim();
 
-        // Limpar mensagem de erro anterior
+        
         errorSpan.textContent = '';
         productInfo.style.display = 'none';
 
@@ -83,14 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Descrição: ${product.descricao || 'Não disponível'}</p>
                 <p>Quantidade: ${product.quantidade}</p>
             `;
-            productInfo.style.display = 'block'; // Exibir a seção de confirmação
+            productInfo.style.display = 'block'; 
         } else {
             errorSpan.textContent = 'Produto não encontrado.';
             errorSpan.style.color = 'red';
         }
     });
 
-    // Excluir o produto ao clicar no botão "Excluir Produto"
+    
     confirmDeleteButton.addEventListener('click', () => {
         const productCode = productCodeInput.value.trim();
 
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cancelar a exclusão e ocultar a seção de confirmação
+    
     cancelDeleteButton.addEventListener('click', () => {
         productInfo.style.display = 'none';
     });

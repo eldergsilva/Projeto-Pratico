@@ -14,8 +14,8 @@ function autenticado(req, res, next) {
             return res.status(403).send({ message: 'Token inválido' });
         }
 
-        req.user = decoded; // Adiciona o payload decodificado à requisição
-        next(); // Passa para o próximo middleware ou rota
+        req.user = decoded;  
+        next();  
     });
 }
 

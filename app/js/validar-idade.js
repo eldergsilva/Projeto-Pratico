@@ -1,4 +1,3 @@
-// Função para verificar se a data de nascimento indica idade maior ou igual a 18 anos
 export function ehMaiorDeIdade(dataNascimento) {
     const hoje = new Date();
     const nascimento = new Date(dataNascimento);

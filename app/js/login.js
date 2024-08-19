@@ -20,7 +20,7 @@ async function handleSubmit(event) {
       localStorage.setItem('userEmail', data.usuario.email);
       localStorage.setItem('userName', data.usuario.nome);
 
-      const role = data.usuario.role || 'user'; // Ajuste para usar 'user' como padrão
+      const role = data.usuario.role || 'user';  
 
       if (role === 'admin') {
         window.location.href = '../pages/admHome.html';

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Função para formatar a data no formato dd/mm/yyyy
+     
     function formatDate(dateString) {
         const date = new Date(dateString);
         const day = String(date.getDate()).padStart(2, '0');
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${day}/${month}/${year}`;
     }
 
-    // Função para criar cartões de usuário
+     
     function createUserCards(users) {
         const userList = document.getElementById('userList');
-        userList.innerHTML = ''; // Limpa o conteúdo existente
+        userList.innerHTML = ''; 
 
         users.forEach(user => {
             const card = document.createElement('div');
@@ -26,15 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Função para buscar dados dos usuários
+     
     async function fetchUsers() {
-        const accessToken = localStorage.getItem('accessToken'); // Obtém o token do localStorage
+        const accessToken = localStorage.getItem('accessToken');  
 
         try {
             const response = await fetch('http://localhost:3000/usuarios', {
                 method: 'GET',
                 headers: {
-                    'x-access-token': accessToken  // Usando 'x-access-token' para enviar o token
+                    'x-access-token': accessToken   
                 }
             });
 
@@ -46,6 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Chama a função para buscar e exibir os usuários
+     
     fetchUsers();
 });

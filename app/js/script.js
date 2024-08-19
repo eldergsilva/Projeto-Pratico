@@ -2,7 +2,7 @@ import { validarCPF, ehUmCPF } from './validar-cpf.js';
 import { ehMaiorDeIdade } from './validar-idade.js';
 import { validaDataNascimento } from './validar-data-nascimento.js';
 
-// Função para validar o formulário
+ 
 export function validarFormulario() {
     const formulario = document.querySelector('[data-formulario]');
     if (!formulario) {
@@ -12,7 +12,7 @@ export function validarFormulario() {
 
     let formularioValido = true;
 
-    // Validar Nome
+     
     const nomeCampo = formulario.querySelector('#nome');
     const nomeErro = formulario.querySelector('#erro-nome');
     if (nomeCampo && nomeErro) {
@@ -26,7 +26,7 @@ export function validarFormulario() {
         console.error('Elemento de erro do nome não encontrado');
     }
 
-    // Validar E-mail
+     
     const emailCampo = formulario.querySelector('#email');
     const emailErro = formulario.querySelector('#erro-email');
     if (emailCampo && emailErro) {
@@ -41,7 +41,7 @@ export function validarFormulario() {
         console.error('Elemento de erro do e-mail não encontrado');
     }
 
-    // Validar Senha
+     
     const senhaCampo = formulario.querySelector('#senha');
     const senhaErro = formulario.querySelector('#erro-senha');
     if (senhaCampo && senhaErro) {
@@ -55,7 +55,7 @@ export function validarFormulario() {
         console.error('Elemento de erro da senha não encontrado');
     }
 
-    // Validar CPF
+     
     const cpfCampo = formulario.querySelector('#cpf');
     const cpfErro = formulario.querySelector('#erro-cpf');
     if (cpfCampo && cpfErro) {
@@ -69,7 +69,7 @@ export function validarFormulario() {
         console.error('Elemento de erro do CPF não encontrado');
     }
 
-    // Validar Data de Nascimento
+     
     const aniversarioCampo = formulario.querySelector('#aniversario');
     const aniversarioErro = formulario.querySelector('#erro-aniversario');
     if (aniversarioCampo && aniversarioErro) {
@@ -83,7 +83,7 @@ export function validarFormulario() {
         console.error('Elemento de erro da data de aniversário não encontrado');
     }
 
-    // Validar Termos
+    
     const termosCampo = formulario.querySelector('input[name="termos"]');
     const termosErro = formulario.querySelector('#erro-termos');
     if (termosCampo && termosErro) {

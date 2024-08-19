@@ -7,16 +7,16 @@ class ProdutoController {
         const { nome, preco, descricao, quantidade, imagem } = req.body;
 
         try {
-            // Verificar se já existe um produto com o mesmo nome
+            
             const produtoExistente = await ProdutoModel.findOne({ nome }).exec();
             if (produtoExistente) {
                 return res.status(400).send({ message: 'Já existe um produto com esse nome.' });
             }
 
-            // Gerar código do produto
+            
             const codigoProduto = await produtoService.gerarCodigoProduto();
 
-            // Criar novo produto
+            
             const novoProduto = new ProdutoModel({
                 codigo: codigoProduto,
                 nome,
@@ -26,7 +26,7 @@ class ProdutoController {
                 imagem
             });
 
-            // Salvar produto
+            
             await novoProduto.save();
             res.status(201).json(novoProduto);
         } catch (error) {
@@ -88,7 +88,7 @@ class ProdutoController {
         const { nome, preco, descricao, quantidade, imagem } = req.body;
 
         try {
-            // Verificar se já existe um produto com o mesmo nome
+            
             if (nome) {
                 const produtoExistente = await ProdutoModel.findOne({ nome }).exec();
                 if (produtoExistente && produtoExistente.codigo !== codigo) {
@@ -96,7 +96,7 @@ class ProdutoController {
                 }
             }
 
-            // Editar produto
+            
             const produto = await produtoService.editarProduto(codigo, { nome, preco, descricao, quantidade, imagem });
             if (!produto) {
                 return res.status(404).send({ message: 'Produto não encontrado.' });

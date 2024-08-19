@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     if (!userId) {
         alert('Usuário não encontrado. Por favor, faça a busca novamente.');
-        window.location.href = 'buscar.html'; // Redireciona de volta para a página de busca
+        window.location.href = 'buscar.html'; 
         return;
     }
 
     try {
-        // Busca os dados do usuário
+        
         const response = await fetch(`http://localhost:3000/usuarios/id/${userId}`, {
             headers: {
                 'x-access-token': accessToken
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const user = await response.json();
 
-        // Função para formatar a data no formato yyyy-MM-dd
+        
         function formatDateForInput(dateString) {
             const date = new Date(dateString);
             const year = date.getFullYear();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             return `${year}-${month}-${day}`;
         }
 
-        // Preenche os campos do formulário com os dados do usuário
+        
         document.getElementById('nome').value = user.nome;
         document.getElementById('email').value = user.email;
         document.getElementById('cpf').value = user.cpf;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         alert('Erro ao carregar dados do usuário.');
     }
 
-    // Adiciona o listener de evento para o formulário de edição
+    
     document.getElementById('editandoUsuario').addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         const cpf = document.getElementById('cpf').value.trim();
         const aniversario = document.getElementById('aniversario').value.trim();
 
-        // Cria um objeto com os dados que serão enviados
+        
         const updatedData = {};
         if (nome) updatedData.nome = nome;
         if (email) updatedData.email = email;
-        if (senha) updatedData.senha = senha; // Senha será atualizada somente se fornecida
+        if (senha) updatedData.senha = senha; 
         if (cpf) updatedData.cpf = cpf;
         if (aniversario) updatedData.dataNascimento = aniversario;
 
@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             if (!response.ok) throw new Error('Erro ao atualizar dados do usuário');
 
-            // Armazena os dados atualizados no localStorage
+            
             localStorage.setItem('userData', JSON.stringify(updatedData));
 
-            // Redireciona para a página editado.html
+            
             window.location.href = 'editado.html';
         } catch (error) {
             console.error('Erro ao atualizar dados do usuário:', error);

@@ -21,21 +21,21 @@ class ProdutoService {
         try {
             const { nome, preco, descricao, quantidade, imagem } = dto;
 
-            // Validação básica
+            
             if (!nome || !preco || quantidade === undefined) {
                 throw new Error('Nome, preço e quantidade são obrigatórios.');
             }
 
-            // Verificar se já existe um produto com o mesmo nome
+            
             const produtoExistente = await ProdutoModel.findOne({ nome }).exec();
             if (produtoExistente) {
                 throw new Error('Já existe um produto com esse nome.');
             }
 
-            // Gerar código do produto
+            
             const codigoProduto = await this.gerarCodigoProduto();
 
-            // Criar novo produto
+            
             const novoProduto = new ProdutoModel({
                 codigo: codigoProduto,
                 nome,
@@ -45,7 +45,7 @@ class ProdutoService {
                 imagem
             });
 
-            // Salvar produto
+            
             await novoProduto.save();
             return novoProduto;
         } catch (error) {
@@ -92,14 +92,14 @@ class ProdutoService {
                 throw new Error('Produto não encontrado');
             }
 
-            // Atualizar campos do produto
+            
             if (dto.nome) produto.nome = dto.nome;
             if (dto.preco) produto.preco = dto.preco;
             if (dto.descricao) produto.descricao = dto.descricao;
             if (dto.quantidade) produto.quantidade = dto.quantidade;
             if (dto.imagem) produto.imagem = dto.imagem;
 
-            // Verificar se o novo nome já existe
+            
             if (dto.nome) {
                 const produtoExistente = await ProdutoModel.findOne({ nome: dto.nome }).exec();
                 if (produtoExistente && produtoExistente.codigo !== codigo) {
@@ -107,7 +107,7 @@ class ProdutoService {
                 }
             }
 
-            // Salvar produto atualizado
+            
             await produto.save();
             return produto;
         } catch (error) {

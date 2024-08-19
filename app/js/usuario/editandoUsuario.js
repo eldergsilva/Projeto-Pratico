@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     try {
-        // Busca os dados do usuário
+         
         const response = await fetch(`http://localhost:3000/usuarios/id/${userId}`, {
             headers: {
                 'x-access-token': accessToken
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const user = await response.json();
 
-        // Função para formatar a data no formato yyyy-MM-dd
+        
         function formatDateForInput(dateString) {
             const date = new Date(dateString);
             const year = date.getFullYear();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             return `${year}-${month}-${day}`;
         }
 
-        // Preenche os campos do formulário com os dados do usuário
+         
         document.getElementById('nome').value = user.nome;
         document.getElementById('email').value = user.email;
         document.getElementById('cpf').value = user.cpf;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         alert('Erro ao carregar dados do usuário.');
     }
 
-    // Adiciona o listener de evento para o formulário de edição
+     
     document.getElementById('editandoUsuario').addEventListener('submit', async function(event) {
         event.preventDefault();
 

@@ -89,13 +89,15 @@ Obtenha a URI de conexão e adicione ao arquivo `.env` do projeto:
 
 ![Captura de Tela - Tela de Cadastro](app/img/cadastrarUser.PNG)
 
-## Contribuição
+## Visualização do Front-End
 
-Se desejar contribuir, faça um fork do repositório, faça suas alterações e envie um pull request. Consulte o [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes.
+Você pode visualizar o front-end do projeto em [GitHub Pages](https://eldergsilva.github.io/Projeto-Pratico/). 
 
-## Licença
+Esta versão é apenas a interface visual do projeto e não está conectada ao backend. Portanto, funcionalidades como login, cadastro de usuários e interação com o banco de dados não estarão disponíveis. No entanto, você poderá explorar o design e a estrutura da aplicação.
 
-Este projeto é licenciado sob a [MIT License](LICENSE).
+Sinta-se à vontade para testar a parte visual e fornecer feedback!
+
+ 
 
 ## Contato
 

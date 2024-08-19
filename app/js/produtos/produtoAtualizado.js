@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Função para carregar os dados do produto
+    
     const loadProductData = async (codigo) => {
         try {
             const response = await fetch(`http://localhost:3000/produtos/codigo/${codigo}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-access-token': localStorage.getItem('accessToken') // Usar o token de autenticação
+                    'x-access-token': localStorage.getItem('accessToken') 
                 }
             });
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Carregar os dados do produto ao carregar a página
+    
     loadProductData(codigo).then(produto => {
         if (produto) {
             produtoCodigo.textContent = produto.codigo;

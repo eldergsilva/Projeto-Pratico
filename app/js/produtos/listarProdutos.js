@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    // Obtém o token de autenticação do localStorage
+    
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', async function () {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': accessToken // Usa o cabeçalho correto para autenticação
+                'x-access-token': accessToken 
             }
         });
 
         if (!response.ok) {
-            const errorData = await response.json(); // Captura dados de erro
+            const errorData = await response.json(); 
             throw new Error(errorData.message || 'Erro ao buscar produtos.');
         }
 
         const produtos = await response.json();
 
-        // Cria o HTML para a lista de produtos
+        
         produtoLista.innerHTML = produtos.map(produto => `
             <div class="produto">
                 <p>Código: ${produto.codigo}</p>

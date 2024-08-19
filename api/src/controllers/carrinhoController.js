@@ -4,7 +4,7 @@ const carrinhoService = new CarrinhoService();
 class CarrinhoController {
     static async criarCarrinho(req, res) {
         try {
-            const usuario_id = req.user.id; // Obtém o ID do usuário autenticado
+            const usuario_id = req.user.id; 
             const carrinho = await carrinhoService.criarCarrinho(usuario_id);
             res.status(201).json(carrinho);
         } catch (error) {
@@ -35,7 +35,7 @@ class CarrinhoController {
 
     static async buscarCarrinhoPorUsuario(req, res) {
         try {
-            const usuario_id = req.user.id; // Obtém o ID do usuário autenticado
+            const usuario_id = req.user.id; 
             const carrinho = await carrinhoService.buscarCarrinhoPorUsuario(usuario_id);
             res.status(200).json(carrinho);
         } catch (error) {

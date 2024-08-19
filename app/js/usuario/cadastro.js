@@ -1,5 +1,3 @@
-// cadastro.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('searchUserForm');
     
@@ -14,20 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const accessToken = localStorage.getItem('accessToken'); // Obtendo o token do localStorage
+            const accessToken = localStorage.getItem('accessToken'); 
             const url = `http://localhost:3000/usuarios?email=${encodeURIComponent(email)}`;
             
             try {
                 const response = await fetch(url, {
                     method: 'GET',
                     headers: {
-                        'x-access-token': accessToken // Adicionando o token no cabeçalho
+                        'x-access-token': accessToken 
                     }
                 });
                 
                 if (response.ok) {
                     const data = await response.json();
-                    // Aqui você pode processar a resposta e redirecionar para editardados.html com os dados do usuário
+                    
                     window.location.href = `editardados.html?email=${encodeURIComponent(email)}`;
                 } else if (response.status === 403) {
                     throw new Error('Não autorizado. Verifique se você está autenticado.');

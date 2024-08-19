@@ -42,6 +42,7 @@ Obtenha a URI de conexão e adicione ao arquivo `.env` do projeto:
       ```dotenv
       MONGODB_URI=<SUA_URI_DO_MONGODB>
       JSON_SECRET=<SEU_SEGREDO_JSON>
+      PORT=3000
       ```
 
     - Substitua `<SUA_URI_DO_MONGODB>` com a URI de conexão do MongoDB e `<SEU_SEGREDO_JSON>` com um segredo para JWT.

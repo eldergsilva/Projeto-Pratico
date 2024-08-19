@@ -1,130 +1,82 @@
-body {
-    background-color: rgb(236, 254, 242);
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    color: #474646;
-}
-
-.container {
-    margin: 2em 5em;
-}
-
-.breadcrumb {
-    margin-bottom: 2em;
-}
-
-.breadcrumb li {
-    display: inline;
-    font-size: 16px;
-    color: #4A6C5A;
-}
-
-.breadcrumb li+li:before {
-    padding: 8px;
-    color: #4A6C5A;
-    content: ">";
-}
-
-.breadcrumb__pagina {
-    font-weight: 700;
-}
-
+/* Estilo da seção listar */
 .listar {
-    margin: 2em auto;
-    padding: 2em;
-    background-color: #FFFFFF;
-    border: 2px solid #858585;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
+    margin: 3em auto;
+    width: 90%;
     max-width: 1200px;
-}
-
-.listar__titulo-texto {
-    font-size: 28px;
-    font-weight: 600;
-    color: #1A4C2A;
-    margin-bottom: 1em;
     text-align: center;
 }
+.listar h2 {
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+    color: var(--verde); /* Aplica a cor verde ao texto */
+    margin-bottom: 1em; /* Define o espaçamento inferior igual ao superior */
+    text-align: center; /* Centraliza o texto */
+}
 
+/* Estilo do contêiner dos cartões de usuário */
 .user-list {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
-    margin-bottom: 2em;
+    justify-content: center;
+    padding: 0;
 }
 
-.usuario-card {
-    background-color: #FFFFFF;
-    border: 2px solid #858585;
-    border-radius: 20px;
+/* Estilo dos cartões de usuário */
+.user-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1em;
-    width: 30vw;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px; /* Ajuste conforme necessário */
+    box-sizing: border-box;
 }
 
-.usuario-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+/* Estilo dos títulos dentro dos cartões */
+.user-card h3 {
+    margin: 0 0 0.5em;
+    font-size: 18px;
 }
 
-.usuario-card h3 {
-    font-size: 20px;
-    color: #1A4C2A;
-    margin-bottom: 0.5em;
-}
-
-.usuario-card p {
+/* Estilo dos parágrafos dentro dos cartões */
+.user-card p {
     margin: 0.5em 0;
-    color: #858585;
+    font-size: 16px;
 }
 
-.usuario-card a {
+/* Estilo do link "Voltar" */
+.listar__link {
     display: inline-block;
-    margin-top: 1em;
     padding: 10px 20px;
-    background-color: #8B5A2B;
-    color: #FFFFFF;
+    background-color: var(--marrom);
+    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-}
-
-.usuario-card a:hover {
-    background-color: #ce9325;
-}
-
-.corpo__link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #8B5A2B;
-    color: #FFFFFF;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    margin-top: 2em;
     text-align: center;
-    margin: 1em auto;
-    display: block;
 }
 
-.corpo__link:hover {
-    background-color: #ce9325;
+.listar__link:hover {
+    background-color: var(--laranja);
 }
 
+/* Responsividade */
 @media screen and (max-width: 900px) {
-    .user-list {
-        flex-direction: column;
-        align-items: center;
+    .user-card {
+        width: 100%;
     }
-
-    .usuario-card {
-        width: 80%;
+    
+    .listar h2 {
+        font-size: 1.8em; /* Ajusta o tamanho da fonte para telas menores */
     }
+}
 
-    .listar {
-        width: 90%;
-        padding: 1em;
+@media screen and (max-width: 600px) {
+    .user-card {
+        width: 100%;
+    }
+    .listar h2 {
+        font-size: 1.6em /* Ajusta o tamanho da fonte para telas menores */
     }
 }

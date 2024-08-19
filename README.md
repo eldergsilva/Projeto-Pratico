@@ -1,6 +1,6 @@
 # ![Logo](app/img/logo.png) **Amazon Beauty co**
 
-**Amazon Beauty co** é uma API para uma loja de cosméticos naturais, parte de um projeto proposto pela **Alura** e pelo **GRUPO BOTICÁRIO**, que integra o frontend a uma API.
+**Amazon Beauty co** é uma API para uma loja de cosméticos naturais, parte de um projeto proposto pela **Alura** e pelo **GRUPO BOTICÁRIO**,Este projeto inclui uma interface para a gestão de usuários, permitindo a administração eficiente dos dados dos clientes. A API oferece funcionalidades para cadastro, edição e listagem de usuários, facilitando a administração de uma base de clientes para a loja.
 
 ![Imagem do Projeto](app/img/projetoimg.PNG)
 

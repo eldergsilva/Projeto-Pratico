@@ -5,15 +5,16 @@
     max-width: 1200px;
     text-align: center;
 }
+
 .listar h2 {
-    font-size: 2em; /* Aumenta o tamanho da fonte */
-    color: var(--verde); /* Aplica a cor verde ao texto */
-    margin-bottom: 1em; /* Define o espaçamento inferior igual ao superior */
-    text-align: center; /* Centraliza o texto */
+    font-size: 2em;
+    color: var(--verde);
+    margin-bottom: 1em;
+    text-align: center;
 }
 
-/* Estilo do contêiner dos cartões de usuário */
-.user-list {
+/* Estilo do contêiner dos cartões */
+.user-list, .produto-lista {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
@@ -21,25 +22,25 @@
     padding: 0;
 }
 
-/* Estilo dos cartões de usuário */
-.user-card {
+/* Estilo dos cartões */
+.user-card, .produto-card {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1em;
-    width: 300px; /* Ajuste conforme necessário */
+    width: 300px;
     box-sizing: border-box;
 }
 
 /* Estilo dos títulos dentro dos cartões */
-.user-card h3 {
+.user-card h3, .produto-card h3 {
     margin: 0 0 0.5em;
     font-size: 18px;
 }
 
 /* Estilo dos parágrafos dentro dos cartões */
-.user-card p {
+.user-card p, .produto-card p {
     margin: 0.5em 0;
     font-size: 16px;
 }
@@ -63,20 +64,20 @@
 
 /* Responsividade */
 @media screen and (max-width: 900px) {
-    .user-card {
+    .user-card, .produto-card {
         width: 100%;
     }
     
     .listar h2 {
-        font-size: 1.8em; /* Ajusta o tamanho da fonte para telas menores */
+        font-size: 1.8em;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .user-card {
+    .user-card, .produto-card {
         width: 100%;
     }
     .listar h2 {
-        font-size: 1.6em /* Ajusta o tamanho da fonte para telas menores */
+        font-size: 1.6em;
     }
 }

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
@@ -30,9 +29,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const produtos = await response.json();
 
-        
         produtoLista.innerHTML = produtos.map(produto => `
-            <div class="produto">
+            <div class="produto-card">
                 <p>Código: ${produto.codigo}</p>
                 <h3>${produto.nome}</h3>
                 <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
